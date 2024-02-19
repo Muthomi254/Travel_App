@@ -1,9 +1,8 @@
-
+import Navbar from "./components/Navbar";
 function App() {
   return (
     <div className="App">
-      <h1 className="text-orange-700" >hello world</h1>
-    
+    <Navbar/>
     </div>
   );
 }
