@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { FaPlane } from 'react-icons/fa';
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(true);
   };
 
   const closeNavbar = () => {
@@ -12,37 +13,38 @@ const Navbar = () => {
   };
 
   return (
-    <nav  className="">
+    <nav id='navbg' className="fixed-top w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0 text-orange-600 text-lg font-bold flex items-center">
-            Travel  <div><FaPlane  className='text-black text-4xl mx-2'/></div>
-          </div>
+              Travel  <div><FaPlane className='text-black text-4xl mx-2'/></div>
+            </div>
           </div>
           <div className="hidden md:block">
             <div className="flex items-center">
-              <a href="#" className="text-gray-500 hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
-              <a href="#" className="text-gray-500 hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+              <a href="#" className="text-white hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+              <a href="#" className="text-white hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
               <div className="relative">
-                <button onClick={toggleNavbar} className="text-gray-500 hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium focus:outline-none">
+                <button onMouseEnter={toggleNavbar} className="text-white hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium focus:outline-none">
                   Services
                   <svg className="h-5 w-5 inline-block ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10 3a1 1 0 01.707.293l4 4a1 1 0 11-1.414 1.414L10 5.414 7.707 7.707a1 1 0 11-1.414-1.414l4-4A1 1 0 0110 3z" clipRule="evenodd" />
                   </svg>
                 </button>
                 {isOpen && (
-                  <div className="absolute left-0 mt-2 w-56 origin-top-left bg-gray-900 rounded-md shadow-lg">
-                    <div className="py-1">
-                      <a href="#" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Web Development</a>
-                      <a href="#" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Graphic Design</a>
-                      <a href="#" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Digital Marketing</a>
+                  <div id='navbg' onMouseLeave={closeNavbar} className="absolute left-0 mt-2 w-56 origin-top-left bg-gray-900 rounded-md shadow-lg">
+                    <div className="py-1 font-bold">
+                      <a href="#" className="text-black hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Web Development</a>
+                      <a href="#" className="text-black hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Graphic Design</a>
+                      <a href="#" className="text-black hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Digital Marketing</a>
                     </div>
                   </div>
                 )}
               </div>
               <div className='mx-10'>
-              <a href="#" className="text-slate-200 hover:bg-gray-800 bg-orange-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Get in touch</a>
+                <a href="#" className=" text-white hover:bg-gray-800 bg-orange-600 shadow-xl transition hover:text-black hover:bg-white px-3 py-2 rounded-md text-sm font-medium">Get in touch</a>
+                <a href="#" className="text-white hover:bg-black hover:text-white px-3 py-2 rounded-md text-sm mx-3">login</a>
 
               </div>
             </div>
@@ -85,22 +87,22 @@ const Navbar = () => {
           <a href="#" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
           <a href="#" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
           <div className="relative">
-                <button onClick={toggleNavbar} className="text-gray-300 hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium focus:outline-none">
-                  Services
-                  <svg className="h-5 w-5 inline-block ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10 3a1 1 0 01.707.293l4 4a1 1 0 11-1.414 1.414L10 5.414 7.707 7.707a1 1 0 11-1.414-1.414l4-4A1 1 0 0110 3z" clipRule="evenodd" />
-                  </svg>
-                </button>
-                {isOpen && (
-                  <div className="absolute left-0 mt-2 w-56 origin-top-left bg-gray-900 rounded-md shadow-lg">
-                    <div className="py-1">
-                      <a href="#" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Web Development</a>
-                      <a href="#" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Graphic Design</a>
-                      <a href="#" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Digital Marketing</a>
-                    </div>
-                  </div>
-                )}
+            <button onClick={toggleNavbar} className="text-gray-300 hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium focus:outline-none">
+              Services
+              <svg className="h-5 w-5 inline-block ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10 3a1 1 0 01.707.293l4 4a1 1 0 11-1.414 1.414L10 5.414 7.707 7.707a1 1 0 11-1.414-1.414l4-4A1 1 0 0110 3z" clipRule="evenodd" />
+              </svg>
+            </button>
+            {isOpen && (
+              <div className="absolute left-0 mt-2 w-56 origin-top-left bg-gray-900 rounded-md shadow-lg">
+                <div className="py-1">
+                  <a href="#" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Web Development</a>
+                  <a href="#" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Graphic Design</a>
+                  <a href="#" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Digital Marketing</a>
+                </div>
               </div>
+            )}
+          </div>
           <a href="#" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
         </div>
       </div>
@@ -109,5 +111,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
