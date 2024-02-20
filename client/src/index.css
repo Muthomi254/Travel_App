@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#top-nav{
+    background-image: url(./images/homepage.jpg);
+    background-position: center;
+    background-size: fit;
+}
