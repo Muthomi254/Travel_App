@@ -44,7 +44,7 @@ const Navbar = () => {
               </div>
               <div className='mx-10'>
                 <a href="#" className=" text-white hover:bg-gray-800 bg-orange-600 shadow-xl transition hover:text-black hover:bg-white px-3 py-2 rounded-md text-sm font-medium">Get in touch</a>
-                <a href="#" className="text-white hover:bg-black hover:text-white px-3 py-2 rounded-md text-sm mx-3">login</a>
+                <a href="#" className="text-white hover:bg-black  hover:text-white px-3 py-2 rounded-md text-sm mx-3">login</a>
 
               </div>
             </div>

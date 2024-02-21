@@ -37,3 +37,8 @@
     backdrop-filter: blur(10px); 
     -webkit-backdrop-filter: blur(10px); 
 }
+#sec{
+    background-position: center;
+    background-size: cover;
+    background-image: url(../src/images/sec.jpg);
+}
