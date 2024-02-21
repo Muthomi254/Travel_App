@@ -35,7 +35,7 @@ const Navbar = () => {
                 {isOpen && (
                   <div id='navbg' onMouseLeave={closeNavbar} className="absolute left-0 mt-2 w-56 origin-top-left bg-gray-900 rounded-md shadow-lg">
                     <div className="py-1 font-bold">
-                      <a href="#" className="text-black hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Web Development</a>
+                      <a href="#" className="text-black hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Restaurants</a>
                       <a href="#" className="text-black hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Graphic Design</a>
                       <a href="#" className="text-black hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Digital Marketing</a>
                     </div>
