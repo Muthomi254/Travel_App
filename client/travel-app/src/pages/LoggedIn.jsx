@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { FaPlane } from 'react-icons/fa';
+import { FaPlane, FaUser, FaCog, FaSignOutAlt } from 'react-icons/fa';
 
-const Navbar = () => {
+const LoggedIn = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => {
-    setIsOpen(true);
+    setIsOpen(!isOpen);
   };
 
   const closeNavbar = () => {
@@ -35,17 +35,31 @@ const Navbar = () => {
                 {isOpen && (
                   <div id='navbg' onMouseLeave={closeNavbar} className="absolute left-0 mt-2 w-56 origin-top-left bg-gray-900 rounded-md shadow-lg">
                     <div className="py-1 font-bold">
-                    <a href="#" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Restaurants</a>
-                  <a href="#" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Flights </a>
-                  <a href="#" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Buses</a>
+                      <a href="#" className="text-black hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Restaurants</a>
+                      <a href="#" className="text-black hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Flights</a>
+                      <a href="#" className="text-black hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Buses</a>
                     </div>
                   </div>
                 )}
               </div>
               <div className='mx-10'>
-                <a href="#" className=" text-white hover:bg-gray-800 bg-orange-600 shadow-xl transition hover:text-black hover:bg-white px-3 py-2 rounded-md text-sm font-medium">Get in touch</a>
-                <a href="#" className="text-white hover:bg-black  hover:text-white px-3 py-2 rounded-md text-sm mx-3">login</a>
-
+                <div className="relative">
+                  <button onClick={toggleNavbar} className="text-white hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium focus:outline-none">
+                    <FaUser className="inline-block mr-1" /> Profile
+                  </button>
+                  {isOpen && (
+                    <div className="absolute left-0 mt-2 w-48 origin-top-left bg-gray-900 rounded-md shadow-lg">
+                      <div className="py-1">
+                        <a href="#" className="text-white hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>
+                          <FaCog className="inline-block mr-1" /> Settings
+                        </a>
+                        <a href="#" className="text-white hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>
+                          <FaSignOutAlt className="inline-block mr-1" /> Logout
+                        </a>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -96,7 +110,7 @@ const Navbar = () => {
             {isOpen && (
               <div className="absolute left-0 mt-2 w-56 origin-top-left bg-gray-900 rounded-md shadow-lg">
                 <div className="py-1">
-                <a href="#" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Restaurants</a>
+                  <a href="#" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Restaurants</a>
                   <a href="#" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Flights </a>
                   <a href="#" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Buses</a>
                 </div>
@@ -110,4 +124,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default LoggedIn;
