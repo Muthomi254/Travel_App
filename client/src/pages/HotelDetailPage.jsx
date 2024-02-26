@@ -1,5 +1,5 @@
 import React from 'react';
-import accommodationImage from '../images/hoteldetailhero.png';
+import accommodationImage from '../images/heroimages.jpeg';
 import gallery2 from '../images/image222.png';
 import gallery3 from '../images/image222.png';
 import gallery4 from '../images/image222.png';
@@ -9,15 +9,14 @@ class HotelDetailPage extends React.Component {
   render() {
     return (
       <div className="hotel-details-page">
-  {/* Hero Section with background image */}
-  <div className="bg-gray-900 text-white py-48 px-4 relative">
-    {/* Background Image */}
-    <div className="absolute inset-0 z-0">
-      <img src={accommodationImage} alt="Hotel Hero" className="object-cover w-full h-full" />
-    </div>
-    {/* Content */}
-    <div className="max-w-4xl mx-auto text-center relative z-10">
-
+        {/* Hero Section with background image */}
+        <div className="bg-gray-900 text-white py-48 px-4 relative">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <img src={accommodationImage} alt="Hotel Hero" className="object-cover w-full h-full" />
+          </div>
+          {/* Content */}
+          <div className="max-w-4xl mx-auto text-center relative z-10">
           </div>
         </div>
 
@@ -75,31 +74,31 @@ class HotelDetailPage extends React.Component {
               <div className="bg-gray-100 p-6 rounded-lg">
                 <h2 className="font-playfair-display text-2xl font-bold text-blue-900">Book The Hotel</h2>
                 <form>
-                  <label className="block mb-4 flex items-center">
+                  <label className="block mb-4">
                     <svg className="w-6 h-6 fill-current text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 2.5A2.5 2.5 0 0 1 7.5 0h5A2.5 2.5 0 0 1 15 2.5V7H5V2.5zm0 10v-5h10v5H5zM2.5 8h15a2.5 2.5 0 0 1 2.5 2.5V17.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 0 17.5V10.5A2.5 2.5 0 0 1 2.5 8zM18 10v5H2v-5h16z"/></svg>
                     <input type="text" name="name" placeholder="Name" className="block w-full border-gray-300 rounded-md py-2 pl-2" />
                   </label>
-                  <label className="block mb-4 flex items-center">
+                  <label className="block mb-4">
                     <svg className="w-6 h-6 fill-current text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 2.5A2.5 2.5 0 0 1 7.5 0h5A2.5 2.5 0 0 1 15 2.5V7H5V2.5zm0 10v-5h10v5H5zM2.5 8h15a2.5 2.5 0 0 1 2.5 2.5V17.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 0 17.5V10.5A2.5 2.5 0 0 1 2.5 8zM18 10v5H2v-5h16z"/></svg>
                     <input type="email" name="email" placeholder="Email" className="block w-full border-gray-300 rounded-md py-2 pl-2" />
                   </label>
-                  <label className="block mb-4 flex items-center">
+                  <label className="block mb-4">
                     <svg className="w-6 h-6 fill-current text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 2.5A2.5 2.5 0 0 1 7.5 0h5A2.5 2.5 0 0 1 15 2.5V7H5V2.5zm0 10v-5h10v5H5zM2.5 8h15a2.5 2.5 0 0 1 2.5 2.5V17.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 0 17.5V10.5A2.5 2.5 0 0 1 2.5 8zM18 10v5H2v-5h16z"/></svg>
                     <input type="email" name="confirmEmail" placeholder="Confirm Email" className="block w-full border-gray-300 rounded-md py-2 pl-2" />
                   </label>
-                  <label className="block mb-4 flex items-center">
+                  <label className="block mb-4">
                     <svg className="w-6 h-6 fill-current text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 2.5A2.5 2.5 0 0 1 7.5 0h5A2.5 2.5 0 0 1 15 2.5V7H5V2.5zm0 10v-5h10v5H5zM2.5 8h15a2.5 2.5 0 0 1 2.5 2.5V17.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 0 17.5V10.5A2.5 2.5 0 0 1 2.5 8zM18 10v5H2v-5h16z"/></svg>
                     <input type="tel" name="phoneNumber" placeholder="Phone Number" className="block w-full border-gray-300 rounded-md py-2 pl-2" />
                   </label>
-                  <label className="block mb-4 flex items-center">
+                  <label className="block mb-4">
                     <svg className="w-6 h-6 fill-current text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 2.5A2.5 2.5 0 0 1 7.5 0h5A2.5 2.5 0 0 1 15 2.5V7H5V2.5zm0 10v-5h10v5H5zM2.5 8h15a2.5 2.5 0 0 1 2.5 2.5V17.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 0 17.5V10.5A2.5 2.5 0 0 1 2.5 8zM18 10v5H2v-5h16z"/></svg>
                     <input type="date" name="checkInDate" placeholder="Check-in Date" className="block w-full border-gray-300 rounded-md py-2 pl-2" />
                   </label>
-                  <label className="block mb-4 flex items-center">
+                  <label className="block mb-4">
                     <svg className="w-6 h-6 fill-current text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 2.5A2.5 2.5 0 0 1 7.5 0h5A2.5 2.5 0 0 1 15 2.5V7H5V2.5zm0 10v-5h10v5H5zM2.5 8h15a2.5 2.5 0 0 1 2.5 2.5V17.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 0 17.5V10.5A2.5 2.5 0 0 1 2.5 8zM18 10v5H2v-5h16z"/></svg>
                     <input type="number" name="numOfPeople" placeholder="Number of People" className="block w-full border-gray-300 rounded-md py-2 pl-2" />
                   </label>
-                  <label className="block mb-4 flex items-center">
+                  <label className="block mb-4">
                     <svg className="w-6 h-6 fill-current text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 2.5A2.5 2.5 0 0 1 7.5 0h5A2.5 2.5 0 0 1 15 2.5V7H5V2.5zm0 10v-5h10v5H5zM2.5 8h15a2.5 2.5 0 0 1 2.5 2.5V17.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 0 17.5V10.5A2.5 2.5 0 0 1 2.5 8zM18 10v5H2v-5h16z"/></svg>
                     <textarea name="message" placeholder="Message" className="block w-full border-gray-300 rounded-md py-2 pl-2"></textarea>
                   </label>
@@ -107,11 +106,10 @@ class HotelDetailPage extends React.Component {
                   {/* Add more input fields for booking details */}
                   <button type="submit" className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600">Book Now</button>
                 </form>
-               
               </div>
               <div className="mt-8">
-  <img src={imageUnderForm} alt="form" className="w-full h-auto rounded-lg" style={{ maxHeight: '400px' }} />
-</div>
+                <img src={imageUnderForm} alt="form" className="w-full h-auto rounded-lg" style={{ maxHeight: '400px' }} />
+              </div>
             </div>
           </div>
         </div>
