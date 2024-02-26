@@ -4,6 +4,9 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ], theme: {
     extend: {},
+    fontFamily: {
+      'playfair-display': ['"Playfair Display"', 'serif'],
+    },
   },
   plugins: [],
 }
