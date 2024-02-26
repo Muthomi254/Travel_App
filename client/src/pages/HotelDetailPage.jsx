@@ -1,9 +1,9 @@
 import React from 'react';
 import accommodationImage from '../images/hoteldetailhero.png';
-import gallery1 from '../images/image222.png';
 import gallery2 from '../images/image222.png';
 import gallery3 from '../images/image222.png';
-
+import gallery4 from '../images/image222.png';
+import imageUnderForm from '../images/formpic.png';
 
 class HotelDetailPage extends React.Component {
   render() {
@@ -63,17 +63,17 @@ class HotelDetailPage extends React.Component {
               </div>
               {/* Image Gallery */}
               <div className="flex flex-wrap items-center">
-                <h2 className="text-2xl font-bold text-blue-900">From Our Gallery</h2>
-                <img src={gallery1} alt="Gallery 1" className="w-1/3 mx-auto mb-4" />
+                <h2 className="font-playfair-display text-3xl font-bold text-blue-900">From Our Gallery</h2>
                 <img src={gallery2} alt="Gallery 2" className="w-1/3 mx-auto mb-4" />
                 <img src={gallery3} alt="Gallery 3" className="w-1/3 mx-auto mb-4" />
+                <img src={gallery4} alt="Gallery 4" className="w-1/3 mx-auto mb-4" />
               </div>
             </div>
 
             {/* Booking Form */}
             <div className="w-1/3 pl-8">
               <div className="bg-gray-100 p-6 rounded-lg">
-                <h2 className="text-2xl font-bold mb-4">Book The Hotel</h2>
+                <h2 className="font-playfair-display text-2xl font-bold text-blue-900">Book The Hotel</h2>
                 <form>
                   <label className="block mb-4 flex items-center">
                     <svg className="w-6 h-6 fill-current text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 2.5A2.5 2.5 0 0 1 7.5 0h5A2.5 2.5 0 0 1 15 2.5V7H5V2.5zm0 10v-5h10v5H5zM2.5 8h15a2.5 2.5 0 0 1 2.5 2.5V17.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 0 17.5V10.5A2.5 2.5 0 0 1 2.5 8zM18 10v5H2v-5h16z"/></svg>
@@ -103,10 +103,15 @@ class HotelDetailPage extends React.Component {
                     <svg className="w-6 h-6 fill-current text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 2.5A2.5 2.5 0 0 1 7.5 0h5A2.5 2.5 0 0 1 15 2.5V7H5V2.5zm0 10v-5h10v5H5zM2.5 8h15a2.5 2.5 0 0 1 2.5 2.5V17.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 0 17.5V10.5A2.5 2.5 0 0 1 2.5 8zM18 10v5H2v-5h16z"/></svg>
                     <textarea name="message" placeholder="Message" className="block w-full border-gray-300 rounded-md py-2 pl-2"></textarea>
                   </label>
+                  
                   {/* Add more input fields for booking details */}
                   <button type="submit" className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600">Book Now</button>
                 </form>
+               
               </div>
+              <div className="mt-8">
+  <img src={imageUnderForm} alt="form" className="w-full h-auto rounded-lg" style={{ maxHeight: '400px' }} />
+</div>
             </div>
           </div>
         </div>
