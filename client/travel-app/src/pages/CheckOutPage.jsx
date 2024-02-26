@@ -1,6 +1,6 @@
 import React from 'react';
-import accommodationImage from '../images/heropic.jpeg';
-import imageUnderForm from '../images/formpic.png';
+import accommodationImage from '../images/homepage.jpg';
+import imageUnderForm from '../images/formimage1.jpeg';
 
 
 class CheckoutPage extends React.Component {

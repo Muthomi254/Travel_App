@@ -1,9 +1,9 @@
 import React from 'react';
-import accommodationImage from '../images/heroimages.jpeg';
-import gallery2 from '../images/image222.png';
-import gallery3 from '../images/image222.png';
-import gallery4 from '../images/image222.png';
-import imageUnderForm from '../images/formpic.png';
+import accommodationImage from '../images/homepage.jpg';
+import gallery2 from '../images/homepage.jpg';
+import gallery3 from '../images/homepage.jpg';
+import gallery4 from '../images/homepage.jpg';
+import imageUnderForm from '../images/formimage1.jpeg';
 
 
 class HotelDetailPage extends React.Component {
