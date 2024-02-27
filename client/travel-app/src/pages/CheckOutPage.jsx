@@ -1,9 +1,9 @@
 import React from 'react';
 import accommodationImage from '../images/heropic.jpeg';
 import imageUnderForm from '../images/formpic.png';
-import accommodationImage from '../images/homepage.jpg';
+//import accommodationImage from '../images/homepage.jpg';
 import imageUnderForm from '../images/formimage1.jpeg';
-import Navbar from "../components/Navbar";
+//import Navbar from "../components/Navbar";
 
 class CheckoutPage extends React.Component {
   render() {
