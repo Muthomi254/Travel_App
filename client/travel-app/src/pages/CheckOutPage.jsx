@@ -1,7 +1,7 @@
 import React from 'react';
 import accommodationImage from '../images/homepage.jpg';
 import imageUnderForm from '../images/formimage1.jpeg';
-
+import Navbar from "../components/Navbar";
 class CheckoutPage extends React.Component {
   render() {
     // Sample price calculation
