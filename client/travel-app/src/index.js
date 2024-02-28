@@ -9,6 +9,8 @@ import TransportPage from './pages/TransportPage';
 import TourPlanPage from './pages/TourPlanPage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+import AboutUsPage from './pages/AboutUsPage';
+import BookWithUs from './pages/BookWithUs';
 
 
 ReactDOM.render(
@@ -22,6 +24,8 @@ ReactDOM.render(
         <Route path="/tour-plan" element={<TourPlanPage />} />
         <Route path="/login" element={<LoginPage />} /> 
         <Route path="/signup" element={<SignupPage/>} /> 
+        <Route path="/about" element={<AboutUsPage />} />
+        <Route path="/book-us" element={<BookWithUs />} />
       </Routes>
     </Router>
   </React.StrictMode>,
