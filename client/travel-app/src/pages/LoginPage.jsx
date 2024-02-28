@@ -8,8 +8,9 @@ const LoginPage = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    loginAsAdmin: false,
+    role: 'User', // Change the state property to "role"
   });
+  const [authenticationError, setAuthenticationError] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -17,7 +18,7 @@ const LoginPage = () => {
     if (type === 'checkbox') {
       setFormData((prevData) => ({
         ...prevData,
-        loginAsAdmin: name === 'login-as-admin' ? checked : false,
+        role: name === 'login-as-Admin' ? 'Admin' : 'User', // Change property to "role"
       }));
     } else {
       setFormData((prevData) => ({
@@ -29,20 +30,23 @@ const LoginPage = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-
-    const endpoint = formData.loginAsAdmin ? '/admin_login' : '/login';
-
+  
+    const endpoint = formData.loginAsAdmin ? '/Admin_login' : '/login';
+  
     try {
+      const { email, password } = formData; // Extract only email and password
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ email, password }),
       });
-
+  
       if (response.ok) {
-        // Successful login, show success message
+        // Successful login, reset authentication error state
+        setAuthenticationError(false);
+  
         Swal.fire({
           icon: 'success',
           title: 'Login Successful',
@@ -52,6 +56,8 @@ const LoginPage = () => {
           navigate('/');
         });
       } else {
+        setAuthenticationError(true);
+        console.log(f)
         Swal.fire({
           icon: 'error',
           title: 'Login Failed',
@@ -66,7 +72,7 @@ const LoginPage = () => {
       });
     }
   };
-
+  
   return (
     <div className="flex justify-center items-center h-screen" style={{ backgroundImage: `url(${loginImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="container mx-auto max-w-md p-8 bg-white bg-opacity-75 rounded-lg shadow-md">
@@ -84,17 +90,20 @@ const LoginPage = () => {
             </label>
             <input type="password" id="password" name="password" className="w-full border rounded p-2 mt-1" onChange={handleInputChange} />
           </div>
+          {authenticationError && (
+            <div className="text-red-500 text-sm">Invalid email or password. Please try again.</div>
+          )}
           <div className="flex items-center">
             <input
               type="checkbox"
-              id="login-as-admin"
-              name="login-as-admin"
+              id="login-as-Admin"
+              name="login-as-Admin"
               className="mr-2"
-              checked={formData.loginAsAdmin}
+              checked={formData.role === 'Admin'}
               onChange={handleInputChange}
             />
-            <label htmlFor="login-as-admin" className="text-gray-700">
-              Login as admin
+            <label htmlFor="login-as-Admin" className="text-gray-700">
+              Login as Admin
             </label>
           </div>
           <button type="submit" className="bg-orange-500 text-white py-3 px-6 rounded">
