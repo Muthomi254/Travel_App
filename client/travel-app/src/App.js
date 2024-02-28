@@ -8,18 +8,20 @@ import Testimonials from "./components/Testimonials";
 import Topsection from "./components/Topsection";
 import ServiceCard from "./components/servicecard";
 import SuperUser from "./pages/superuser";
-import './index.css';
+import "./index.css";
+import TransportPage from "./pages/TransportPage";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/superuser" element={<SuperUser />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/superuser" element={<SuperUser />} />
+        <Route path="/transport" element={<TransportPage />} />
+      </Routes>
+      <Footer />
+
+    </div>
   );
 }
 
@@ -32,7 +34,6 @@ function Home() {
       <Showcase />
       <Newsletter />
       <ServiceCard />
-      <Footer />
     </>
   );
 }

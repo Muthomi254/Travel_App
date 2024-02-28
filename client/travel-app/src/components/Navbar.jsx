@@ -24,10 +24,10 @@ const Navbar = () => {
           </div>
           <div className="hidden md:block">
             <div className="flex items-center">
-              <Link to="/" className="text-white hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</Link>
-              <Link to="/about" className="text-white hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</Link>
+              <Link to="/" className="text-gray-900 dark:text-white hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</Link>
+              <Link to="/about" className="text-gray-900 dark:text-white hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</Link>
               <div className="relative">
-                <button onMouseEnter={toggleNavbar} className="text-white hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium focus:outline-none">
+                <button onMouseEnter={toggleNavbar} className="text-gray-900 dark:text-white hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium focus:outline-none">
                   Services
                   <svg className="h-5 w-5 inline-block ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10 3a1 1 0 01.707.293l4 4a1 1 0 11-1.414 1.414L10 5.414 7.707 7.707a1 1 0 11-1.414-1.414l4-4A1 1 0 0110 3z" clipRule="evenodd" />
@@ -37,15 +37,15 @@ const Navbar = () => {
                   <div id='navbg' onMouseLeave={closeNavbar} className="absolute left-0 mt-2 w-56 origin-top-left bg-gray-900 rounded-md shadow-lg">
                     <div className="py-1 font-bold">
                       <Link to="/restaurants" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Restaurants</Link>
-                      <Link to="/flights" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Flights </Link>
-                      <Link to="/buses" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Buses</Link>
+                      <Link to="/transport" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Flights </Link>
+                      <Link to="/transport" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Buses</Link>
                     </div>
                   </div>
                 )}
               </div>
               <div className='mx-10'>
-                <Link to="/contact" className=" text-white hover:bg-gray-800 bg-orange-600 shadow-xl transition hover:text-black hover:bg-white px-3 py-2 rounded-md text-sm font-medium">Get in touch</Link>
-                <Link to="/login" className="text-white hover:bg-black  hover:text-white px-3 py-2 rounded-md text-sm mx-3">login</Link>
+                <Link to="/contact" className=" text-gray-900 dark:text-white hover:bg-gray-800 bg-orange-600 shadow-xl transition hover:text-black hover:bg-white px-3 py-2 rounded-md text-sm font-medium">Get in touch</Link>
+                <Link to="/login" className="text-gray-900 dark:text-white hover:bg-black  hover:text-white px-3 py-2 rounded-md text-sm mx-3">login</Link>
               </div>
             </div>
           </div>
@@ -97,7 +97,7 @@ const Navbar = () => {
               <div className="absolute left-0 mt-2 w-56 origin-top-left bg-gray-900 rounded-md shadow-lg">
                 <div className="py-1">
                   <Link to="/restaurants" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Restaurants</Link>
-                  <Link to="/flights" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Flights </Link>
+                  <Link to="/transport" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Flights </Link>
                   <Link to="/buses" className="text-gray-300 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Buses</Link>
                 </div>
               </div>
