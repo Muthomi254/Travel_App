@@ -52,13 +52,16 @@ const AccommodationServiceContextProvider = (props) => {
   // Update an existing accommodation service
   const updateService = async (serviceId, updatedServiceData) => {
     try {
-      const response = await fetch(`http://127.0.0.1:5000/accommodation/${serviceId}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updatedServiceData),
-      });
+      const response = await fetch(
+        `http://127.0.0.1:5000/accommodation/${serviceId}`,
+        {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(updatedServiceData),
+        }
+      );
       if (!response.ok) {
         throw new Error('Failed to update accommodation service');
       }
@@ -76,14 +79,21 @@ const AccommodationServiceContextProvider = (props) => {
   // Delete an existing accommodation service
   const deleteService = async (serviceId) => {
     try {
-      const response = await fetch(`http://127.0.0.1:5000/accommodation/${serviceId}`, {
-        method: 'DELETE',
-      });
+      const response = await fetch(
+        `http://127.0.0.1:5000/accommodation/${serviceId}`,
+        {
+          method: 'DELETE',
+        }
+      );
       if (!response.ok) {
         throw new Error('Failed to delete accommodation service');
       }
-      const deletedService = services.find((service) => service.id === serviceId);
-      const updatedServices = services.filter((service) => service.id !== serviceId);
+      const deletedService = services.find(
+        (service) => service.id === serviceId
+      );
+      const updatedServices = services.filter(
+        (service) => service.id !== serviceId
+      );
       setServices(updatedServices);
       setError(null);
     } catch (error) {
@@ -101,11 +111,6 @@ const AccommodationServiceContextProvider = (props) => {
 };
 
 export { AccommodationServiceContext, AccommodationServiceContextProvider };
-
-
-
-
-
 
 // import React, { createContext, useState, useEffect } from 'react';
 
