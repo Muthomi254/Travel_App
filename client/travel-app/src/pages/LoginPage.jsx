@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import loginImage from '../images/homepage.jpg';
 
@@ -97,9 +97,10 @@ const LoginPage = () => {
               Login as Admin
             </label>
           </div>
-          <button type="submit" className="bg-orange-500 text-white py-3 px-6 rounded">
+          <button type="submit" className="bg-blue-500 text-white py-3 px-6 rounded hover:bg-blue-700">
             Login
           </button>
+          <p className="mt-2 text-gray-600">Or <Link to="/signup" className="text-blue-500">sign up</Link> if you don't have an account.</p>
         </form>
       </div>
     </div>
