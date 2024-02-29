@@ -34,16 +34,17 @@ const LoginPage = () => {
     const endpoint = formData.loginAsAdmin ? '/Admin_login' : '/login';
   
     try {
-      const { email, password } = formData; // Extract only email and password
+      const { email, password, role } = formData; // Extract only email and password
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, role }),
       });
   
       if (response.ok) {
+        console.log("Working")
         // Successful login, reset authentication error state
         setAuthenticationError(false);
   
@@ -57,7 +58,7 @@ const LoginPage = () => {
         });
       } else {
         setAuthenticationError(true);
-        console.log(f)
+        console.log("f")
         Swal.fire({
           icon: 'error',
           title: 'Login Failed',
