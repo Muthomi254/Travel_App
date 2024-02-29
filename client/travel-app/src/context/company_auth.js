@@ -13,7 +13,7 @@ const CompanyAuthContextProvider = (props) => {
   useEffect(() => {
     const fetchCompanyProfile = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5000/company_auth/profile', {
+        const response = await fetch('/company_auth/profile', {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -23,6 +23,7 @@ const CompanyAuthContextProvider = (props) => {
           throw new Error('Failed to fetch company profile');
         }
         const data = await response.json();
+        console.log('Fetched company profile:', data)
         setCompany(data);
       } catch (error) {
         setError(error.message);
@@ -35,7 +36,7 @@ const CompanyAuthContextProvider = (props) => {
   // Login function
   const login = async (credentials) => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/company_auth/login', {
+      const response = await fetch('/company_auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -56,7 +57,7 @@ const CompanyAuthContextProvider = (props) => {
   // Logout function
   const logout = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/company_auth/logout', {
+      const response = await fetch('/company_auth/logout', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('accessToken')}`,

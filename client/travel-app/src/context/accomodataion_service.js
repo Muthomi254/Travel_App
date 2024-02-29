@@ -13,7 +13,7 @@ const AccommodationServiceContextProvider = (props) => {
   useEffect(() => {
     const fetchAccommodationServices = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5000/accommodation', {
+        const response = await fetch('/accommodation', {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -36,7 +36,7 @@ const AccommodationServiceContextProvider = (props) => {
   const fetchAccommodationService = async (serviceId) => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/accommodation/${serviceId}`,
+        `/accommodation/${serviceId}`,
         {
           method: 'GET',
           headers: {
@@ -57,7 +57,7 @@ const AccommodationServiceContextProvider = (props) => {
 
   const createService = async (serviceData) => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/accommodation', {
+      const response = await fetch('/accommodation', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ const AccommodationServiceContextProvider = (props) => {
   const updateService = async (serviceId, updatedServiceData) => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/accommodation/${serviceId}`,
+        `/accommodation/${serviceId}`,
         {
           method: 'PATCH',
           headers: {
@@ -106,7 +106,7 @@ const AccommodationServiceContextProvider = (props) => {
   const deleteService = async (serviceId) => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/accommodation/${serviceId}`,
+        `/accommodation/${serviceId}`,
         {
           method: 'DELETE',
           headers: {
@@ -157,7 +157,7 @@ export { AccommodationServiceContext, AccommodationServiceContextProvider };
 //   useEffect(() => {
 //     const fetchAccommodationServices = async () => {
 //       try {
-//         const response = await fetch('http://127.0.0.1:5000/accommodation', {
+//         const response = await fetch('/accommodation', {
 //           method: 'GET',
 //           headers: {
 //             Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -179,7 +179,7 @@ export { AccommodationServiceContext, AccommodationServiceContextProvider };
 //   // Create a new accommodation service
 //   const createService = async (serviceData) => {
 //     try {
-//       const response = await fetch('http://127.0.0.1:5000/accommodation', {
+//       const response = await fetch('/accommodation', {
 //         method: 'POST',
 //         headers: {
 //           'Content-Type': 'application/json',
@@ -201,7 +201,7 @@ export { AccommodationServiceContext, AccommodationServiceContextProvider };
 //   // Update an existing accommodation service
 //   const updateService = async (serviceId, updatedServiceData) => {
 //     try {
-//       const response = await fetch(`http://127.0.0.1:5000/accommodation/${serviceId}`, {
+//       const response = await fetch(`/accommodation/${serviceId}`, {
 //         method: 'PATCH',
 //         headers: {
 //           'Content-Type': 'application/json',
@@ -226,7 +226,7 @@ export { AccommodationServiceContext, AccommodationServiceContextProvider };
 //   // Delete an existing accommodation service
 //   const deleteService = async (serviceId) => {
 //     try {
-//       const response = await fetch(`http://127.0.0.1:5000/accommodation/${serviceId}`, {
+//       const response = await fetch(`/accommodation/${serviceId}`, {
 //         method: 'DELETE',
 //         headers: {
 //           Authorization: `Bearer ${localStorage.getItem('accessToken')}`,

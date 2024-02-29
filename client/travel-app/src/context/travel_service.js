@@ -13,7 +13,7 @@ const TravelingServiceContextProvider = (props) => {
     const fetchTravelServices = async () => {
       try {
         console.log('Fetching travel services...');
-        const response = await fetch('http://127.0.0.1:5000/travel');
+        const response = await fetch('/travel');
         if (!response.ok) {
           throw new Error('Failed to fetch travel services');
         }
@@ -37,7 +37,7 @@ const TravelingServiceContextProvider = (props) => {
       }
 
       const response = await fetch(
-        `http://127.0.0.1:5000/travel/${serviceId}`,
+        `/travel/${serviceId}`,
         {
           method: 'GET',
           headers: {
@@ -62,7 +62,7 @@ const TravelingServiceContextProvider = (props) => {
   const createService = async (serviceData) => {
     try {
       console.log('Creating new travel service:', serviceData);
-      const response = await fetch('http://127.0.0.1:5000/travel', {
+      const response = await fetch('/travel', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -86,7 +86,7 @@ const TravelingServiceContextProvider = (props) => {
     try {
       console.log('Updating travel service:', serviceId, updatedServiceData);
       const response = await fetch(
-        `http://127.0.0.1:5000/travel/${serviceId}`,
+        `/travel/${serviceId}`,
         {
           method: 'PATCH',
           headers: {
@@ -115,7 +115,7 @@ const TravelingServiceContextProvider = (props) => {
     try {
       console.log('Deleting travel service:', serviceId);
       const response = await fetch(
-        `http://127.0.0.1:5000/travel/${serviceId}`,
+        `/travel/${serviceId}`,
         {
           method: 'DELETE',
         }
