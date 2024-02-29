@@ -8,10 +8,12 @@ import carImage from '../images/car_image.jpg';
 import fillerImage from '../images/filler.png'; 
 import fillerImage2 from '../images/filler2.png';
 import { FaStar } from 'react-icons/fa';
+import Navbar from '../components/Navbar';
 
 const TransportPage = () => {
   return (
     <div>
+      <Navbar/>
       {/* Hero Section */}
       <div id="hero-section" className="relative">
         <img src={heroimage} alt="Travel with us" className="w-full absolute top-0" />
@@ -171,6 +173,8 @@ const TransportPage = () => {
         <img src={fillerImage} alt="Filler" className="w-full max-w-sm h-auto order-2" />
         <img src={fillerImage2} alt="Filler" className="w-full max-w-sm h-auto order-1" />
       </div>
+
+      <footer/>
     </div>
   );
 };
