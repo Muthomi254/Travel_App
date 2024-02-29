@@ -14,8 +14,8 @@ const Navbar = ({ theme }) => {
   };
 
   return (
-    <nav className={`${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-white text-black'} fixed-top w-full`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav id='glass' className={`${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-white text-black'} fixed-top w-full`}>
+      <div className="max-w-7xl mx-auto py-2  px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0 text-lg font-bold flex items-center">
@@ -34,7 +34,7 @@ const Navbar = ({ theme }) => {
                   </svg>
                 </button>
                 {isOpen && (
-                  <div onMouseLeave={closeNavbar} className="absolute left-0 mt-2 w-56 origin-top-left bg-gray-900 rounded-md shadow-lg">
+                  <div onMouseLeave={closeNavbar} className="absolute left-0 mt-2 w-56 origin-top-left bg-slate-100 rounded-md shadow-lg">
                     <div className="py-1 font-bold">
                       <Link to="/restaurants" className="text-gray-800 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Restaurants</Link>
                       <Link to="/transport" className="text-gray-800 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Flights </Link>
@@ -44,7 +44,7 @@ const Navbar = ({ theme }) => {
                 )}
               </div>
               <div className='mx-10'>
-                <Link to="/contact" className={`px-3 py-2 rounded-md text-sm font-medium ${theme === 'dark' ? 'text-gray-900 dark:text-white hover:bg-gray-800 bg-orange-600 shadow-xl transition hover:text-black hover:bg-white' : 'text-gray-900 dark:text-white hover:bg-black  hover:text-white'}`}>Get in touch</Link>
+                <Link to="/contact" className={`px-3 py-2 rounded-md text-xl font-bold  ${theme === 'dark' ? 'text-gray-900 dark:text-white hover:bg-gray-800 bg-orange-600 shadow-xl transition hover:text-black' : 'text-gray-900 dark:text-white hover:bg-black  hover:text-white'}`}>Get in touch</Link>
                 <Link to="/login" className={`px-3 py-2 rounded-md text-sm mx-3 ${theme === 'dark' ? 'text-gray-900 dark:text-white hover:bg-black  hover:text-white' : 'text-gray-900 dark:text-white hover:bg-gray-800 hover:text-white'}`}>login</Link>
               </div>
             </div>

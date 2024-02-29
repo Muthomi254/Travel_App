@@ -96,7 +96,7 @@ const SignupPage = () => {
       className="flex justify-center items-center h-screen"
       style={{ backgroundImage: `url(${signupImage})`, backgroundSize: 'cover', backgroundPosition: 'center'}}
     >
-      <div className="container mx-auto max-w-md p-8 bg-white bg-opacity-75 rounded-lg shadow-md">
+      <div id='glass' className="container mx-auto max-w-md p-8 bg-opacity-75 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
         <form className="space-y-4" onSubmit={handleFormSubmit}>
           <div>

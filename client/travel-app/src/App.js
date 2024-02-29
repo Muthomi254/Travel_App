@@ -1,3 +1,4 @@
+// App.js
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
@@ -9,26 +10,30 @@ import Testimonials from "./components/Testimonials";
 import Topsection from "./components/Topsection";
 import ServiceCard from "./components/servicecard";
 import SuperUser from "./pages/superuser";
-import "./index.css";
 import TransportPage from "./pages/TransportPage";
+import AboutUsPage from "./pages/AboutUsPage";
+import BookWithUs from "./pages/BookWithUs";
+
+
+import "./index.css";
 
 function App() {
   return (
     <div className="App">
-
-      <Navbar/>
-   <Topsection />
-   <Servicessection/>
-   <Testimonials/>
-
+      <Topsection />
+      <Servicessection />
+      <Testimonials />
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/superuser" element={<SuperUser />} />
         <Route path="/transport" element={<TransportPage />} />
+        <Route path="/about" element={<AboutUsPage />} />
+        <Route path="/book" element={<BookWithUs/>} />
+
       </Routes>
+      
       <Footer />
-
-
     </div>
   );
 }
@@ -36,10 +41,11 @@ function App() {
 function Home() {
   return (
     <>
-      <Topsection />
-      <Servicessection />
-      <Testimonials />
+      {/* <Servicessection />
+      <Testimonials /> */}
       <Showcase />
+      <BookWithUs/>
+
       <Newsletter />
       <ServiceCard />
     </>
@@ -47,4 +53,3 @@ function Home() {
 }
 
 export default App;
-
