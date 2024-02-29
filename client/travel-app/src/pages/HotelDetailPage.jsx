@@ -1,10 +1,9 @@
 import React from 'react';
 import accommodationImage from '../images/homepage.jpg';
-import gallery2 from '../images/homepage.jpg';
-import gallery3 from '../images/homepage.jpg';
-import gallery4 from '../images/homepage.jpg';
+import gallery2 from '../images/fromgallery1.jpg';
+import gallery3 from '../images/fromgallery2.jpg';
+import gallery4 from '../images/fromgallery3.jpg';
 import imageUnderForm from '../images/formimage1.jpeg';
-
 
 class HotelDetailPage extends React.Component {
  render() {
@@ -20,7 +19,6 @@ class HotelDetailPage extends React.Component {
          <div className="max-w-4xl mx-auto text-center relative z-10">
          </div>
        </div>
-
 
        {/* Rectangle Container */}
        <div className="relative max-w-4xl mx-auto py-8 px-4 bg-white rounded-lg shadow-lg -mt-6">
@@ -63,66 +61,54 @@ class HotelDetailPage extends React.Component {
                </div>
              </div>
              {/* Image Gallery */}
-             <div className="flex flex-wrap items-center">
-               <h2 className="font-playfair-display text-3xl font-bold text-blue-900">From Our Gallery</h2>
-               <img src={gallery2} alt="Gallery 2" className="w-1/3 mx-auto mb-4" />
-               <img src={gallery3} alt="Gallery 3" className="w-1/3 mx-auto mb-4" />
-               <img src={gallery4} alt="Gallery 4" className="w-1/3 mx-auto mb-4" />
-             </div>
-           </div>
-
-
-           {/* Booking Form */}
-           <div className="w-1/3 pl-8">
-             <div className="bg-gray-100 p-6 rounded-lg">
-               <h2 className="font-playfair-display text-2xl font-bold text-blue-900">Book The Hotel</h2>
-               <form>
-                 <label className="block mb-4">
-                   <svg className="w-6 h-6 fill-current text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 2.5A2.5 2.5 0 0 1 7.5 0h5A2.5 2.5 0 0 1 15 2.5V7H5V2.5zm0 10v-5h10v5H5zM2.5 8h15a2.5 2.5 0 0 1 2.5 2.5V17.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 0 17.5V10.5A2.5 2.5 0 0 1 2.5 8zM18 10v5H2v-5h16z"/></svg>
-                   <input type="text" name="name" placeholder="Name" className="block w-full border-gray-300 rounded-md py-2 pl-2" />
-                 </label>
-                 <label className="block mb-4">
-                   <svg className="w-6 h-6 fill-current text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 2.5A2.5 2.5 0 0 1 7.5 0h5A2.5 2.5 0 0 1 15 2.5V7H5V2.5zm0 10v-5h10v5H5zM2.5 8h15a2.5 2.5 0 0 1 2.5 2.5V17.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 0 17.5V10.5A2.5 2.5 0 0 1 2.5 8zM18 10v5H2v-5h16z"/></svg>
-                   <input type="email" name="email" placeholder="Email" className="block w-full border-gray-300 rounded-md py-2 pl-2" />
-                 </label>
-                 <label className="block mb-4">
-                   <svg className="w-6 h-6 fill-current text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 2.5A2.5 2.5 0 0 1 7.5 0h5A2.5 2.5 0 0 1 15 2.5V7H5V2.5zm0 10v-5h10v5H5zM2.5 8h15a2.5 2.5 0 0 1 2.5 2.5V17.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 0 17.5V10.5A2.5 2.5 0 0 1 2.5 8zM18 10v5H2v-5h16z"/></svg>
-                   <input type="email" name="confirmEmail" placeholder="Confirm Email" className="block w-full border-gray-300 rounded-md py-2 pl-2" />
-                 </label>
-                 <label className="block mb-4">
-                   <svg className="w-6 h-6 fill-current text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 2.5A2.5 2.5 0 0 1 7.5 0h5A2.5 2.5 0 0 1 15 2.5V7H5V2.5zm0 10v-5h10v5H5zM2.5 8h15a2.5 2.5 0 0 1 2.5 2.5V17.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 0 17.5V10.5A2.5 2.5 0 0 1 2.5 8zM18 10v5H2v-5h16z"/></svg>
-                   <input type="tel" name="phoneNumber" placeholder="Phone Number" className="block w-full border-gray-300 rounded-md py-2 pl-2" />
-                 </label>
-                 <label className="block mb-4">
-                   <svg className="w-6 h-6 fill-current text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 2.5A2.5 2.5 0 0 1 7.5 0h5A2.5 2.5 0 0 1 15 2.5V7H5V2.5zm0 10v-5h10v5H5zM2.5 8h15a2.5 2.5 0 0 1 2.5 2.5V17.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 0 17.5V10.5A2.5 2.5 0 0 1 2.5 8zM18 10v5H2v-5h16z"/></svg>
-                   <input type="date" name="checkInDate" placeholder="Check-in Date" className="block w-full border-gray-300 rounded-md py-2 pl-2" />
-                 </label>
-                 <label className="block mb-4">
-                   <svg className="w-6 h-6 fill-current text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 2.5A2.5 2.5 0 0 1 7.5 0h5A2.5 2.5 0 0 1 15 2.5V7H5V2.5zm0 10v-5h10v5H5zM2.5 8h15a2.5 2.5 0 0 1 2.5 2.5V17.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 0 17.5V10.5A2.5 2.5 0 0 1 2.5 8zM18 10v5H2v-5h16z"/></svg>
-                   <input type="number" name="numOfPeople" placeholder="Number of People" className="block w-full border-gray-300 rounded-md py-2 pl-2" />
-                 </label>
-                 <label className="block mb-4">
-                   <svg className="w-6 h-6 fill-current text-gray-400 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 2.5A2.5 2.5 0 0 1 7.5 0h5A2.5 2.5 0 0 1 15 2.5V7H5V2.5zm0 10v-5h10v5H5zM2.5 8h15a2.5 2.5 0 0 1 2.5 2.5V17.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 0 17.5V10.5A2.5 2.5 0 0 1 2.5 8zM18 10v5H2v-5h16z"/></svg>
-                   <textarea name="message" placeholder="Message" className="block w-full border-gray-300 rounded-md py-2 pl-2"></textarea>
-                 </label>
-                
-                 {/* Add more input fields for booking details */}
-                 <button type="submit" className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600">Book Now</button>
-               </form>
-             </div>
-             <div className="mt-8">
-               <img src={imageUnderForm} alt="form" className="w-full h-auto rounded-lg" style={{ maxHeight: '400px' }} />
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
+             <div className="flex items-center flex-wrap">
+                <h2 className="font-playfair-display text-3xl font-bold text-blue-900 w-full">From Our Gallery</h2>
+                <div className="w-full flex justify-center">
+                   <img src={gallery2} alt="Gallery 2" className="w-1/3 mx-2 mb-4 rounded-lg" />
+                  <img src={gallery3} alt="Gallery 3" className="w-1/3 mx-2 mb-4 rounded-lg" />
+                  <img src={gallery4} alt="Gallery 4" className="w-1/3 mx-2 mb-4 rounded-lg" />
+                </div>
+            </div>
+          </div>
+          {/* Booking Form */}
+          <div className="w-1/3 pl-8">
+            <div className="bg-gray-100 p-6 rounded-lg">
+              <h2 className="font-playfair-display text-2xl font-bold text-blue-900">Book The Hotel</h2>
+              <form>
+                <label className="block mb-4">
+                  <input type="text" name="name" placeholder="Name" className="block w-full border-gray-300 rounded-md py-2 pl-2" />
+                </label>
+                <label className="block mb-4">
+                  <input type="email" name="email" placeholder="Email" className="block w-full border-gray-300 rounded-md py-2 pl-2" />
+                </label>
+                <label className="block mb-4">
+                  <input type="email" name="confirmEmail" placeholder="Confirm Email" className="block w-full border-gray-300 rounded-md py-2 pl-2" />
+                </label>
+                <label className="block mb-4">
+                  <input type="tel" name="phoneNumber" placeholder="Phone Number" className="block w-full border-gray-300 rounded-md py-2 pl-2" />
+                </label>
+                <label className="block mb-4">
+                  <input type="date" name="checkInDate" placeholder="Check-in Date" className="block w-full border-gray-300 rounded-md py-2 pl-2" />
+                </label>
+                <label className="block mb-4">
+                  <input type="number" name="numOfPeople" placeholder="Number of People" className="block w-full border-gray-300 rounded-md py-2 pl-2" />
+                </label>
+                <label className="block mb-4">
+                  <textarea name="message" placeholder="Message" className="block w-full border-gray-300 rounded-md py-2 pl-2"></textarea>
+                </label>
+                {/* Add more input fields for booking details */}
+                <button type="submit" className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600">Book Now</button>
+              </form>
+            </div>
+            <div className="mt-8">
+              <img src={imageUnderForm} alt="form" className="w-full h-auto rounded-lg" style={{ maxHeight: '400px' }} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
    );
  }
 }
 
-
 export default HotelDetailPage;
-
-
-
