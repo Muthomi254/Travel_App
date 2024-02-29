@@ -13,9 +13,9 @@ import fillerImage2 from '../images/filler2.png';
 const TransportPage = () => {
   return (
     <div>
+      <Navbar />
       <div id="hero-section" className="relative">
-        <Navbar />
-        <img src={heroimage} alt="Travel with us" className="w-full absolute top-0 -z-30" />
+        <img src={heroimage} alt="Travel with us" className="w-full absolute top-0" />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-serif text-4xl p-4">Travel with Us</div>
       </div>
 
@@ -134,8 +134,11 @@ const TransportPage = () => {
         <img src={fillerImage} alt="Filler" className="w-full max-w-sm h-auto order-2" />
         <img src={fillerImage2} alt="Filler" className="w-full max-w-sm h-auto order-1" />
       </div>
+
+      <footer/>
     </div>
   );
 };
 
 export default TransportPage;
+
