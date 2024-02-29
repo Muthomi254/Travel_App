@@ -28,7 +28,6 @@ ReactDOM.render(
               <Routes>
                 <Route path="/" element={<App />} />
                 <Route path="/login" element={<LoginPage />} />
-
                 <Route path="/checkout" element={<CheckoutPage />} />
                 <Route path="/hotel/:id" element={<HotelDetailsPage />} />
                 <Route path="/transport" element={<TransportPage />} />

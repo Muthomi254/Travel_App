@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { FaPlane } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { useAuthContext } from '../context/AuthContext.js';
 
 const Navbar = ({ theme }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { handleLogout } = useAuthContext();  // Access the handleLogout function from AuthContext
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -13,51 +15,8 @@ const Navbar = ({ theme }) => {
   const closeNavbar = () => {
     setIsOpen(false);
   };
-  const token = localStorage.getItem('token');
-console.log('Token:', token);
-  const handleLogout = () => {
-    fetch('/logout', {
-      method: 'POST',
-      headers: {
-        // 'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
 
-      },
-    })
-      .then(response => {
-        if (response.ok) {
-          // Show success alert
-          Swal.fire({
-            icon: 'success',
-            title: 'Logout Successful!',
-            showConfirmButton: false,
-            timer: 1500,
-          });
 
-          // Perform additional actions after successful logout if needed
-          console.log('Logout successful');
-        } else {
-          // Show error alert
-          Swal.fire({
-            icon: 'error',
-            title: 'Logout Failed!',
-            text: 'Please try again.',
-          });
-
-          console.error(response);
-        }
-      })
-      .catch(error => {
-        // Show error alert
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'An error occurred during logout. Please try again.',
-        });
-
-        console.error('Error during logout:', error);
-      });
-  };
   return (
     <nav className={`${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-white text-black'} fixed-top w-full`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

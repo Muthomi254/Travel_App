@@ -4,12 +4,16 @@ import {jwtDecode} from 'jwt-decode';
 export const getUserIdFromAccessToken = () => {
   try {
     // Retrieve the access token from local storage
-    const accessToken = localStorage.getItem('token');
+    const accessToken = localStorage.getItem('accessToken');
+    // localStorage.setItem('token', accessToken);
 
     // Check if the token exists
     if (!accessToken) {
       console.error('Access token not found in local storage');
       return null;
+    }
+    else{
+      console.log("succsess")
     }
 
     // Decode the token

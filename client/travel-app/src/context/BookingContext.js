@@ -61,7 +61,7 @@ const BookingProvider = ({ children, initialTotalPrice }) => {
       });
   };
   
-  const fetchTotalPrice = (userId) => {
+  const fetchTotalPrice = () => {
     fetch(`/bookings/total-price`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('access_token')}`,
@@ -74,7 +74,7 @@ const BookingProvider = ({ children, initialTotalPrice }) => {
       .catch((error) => {
         console.error('Error fetching total price:', error);
       });
-  };
+  };  
   
   const initiateBooking = async (data) => {
     // You can customize this function to handle the API call to initiate the booking
