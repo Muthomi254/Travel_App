@@ -36,9 +36,9 @@ const Navbar = ({ theme }) => {
                 {isOpen && (
                   <div onMouseLeave={closeNavbar} className="absolute left-0 mt-2 w-56 origin-top-left bg-gray-900 rounded-md shadow-lg">
                     <div className="py-1 font-bold">
-                      <Link to="/restaurants" className={`block px-4 py-2 text-sm ${theme === 'dark' ? 'text-gray-300 hover:bg-gray-800 hover:text-white' : 'text-gray-900 hover:bg-gray-800 hover:text-white'}`} onClick={closeNavbar}>Restaurants</Link>
-                      <Link to="/transport" className={`block px-4 py-2 text-sm ${theme === 'dark' ? 'text-gray-300 hover:bg-gray-800 hover:text-white' : 'text-gray-900 hover:bg-gray-800 hover:text-white'}`} onClick={closeNavbar}>Flights </Link>
-                      <Link to="/transport" className={`block px-4 py-2 text-sm ${theme === 'dark' ? 'text-gray-300 hover:bg-gray-800 hover:text-white' : 'text-gray-900 hover:bg-gray-800 hover:text-white'}`} onClick={closeNavbar}>Buses</Link>
+                      <Link to="/restaurants" className="text-gray-800 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Restaurants</Link>
+                      <Link to="/transport" className="text-gray-800 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Flights </Link>
+                      <Link to="/transport" className="text-gray-800 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Buses</Link>
                     </div>
                   </div>
                 )}
@@ -111,3 +111,4 @@ const Navbar = ({ theme }) => {
 };
 
 export default Navbar;
+
