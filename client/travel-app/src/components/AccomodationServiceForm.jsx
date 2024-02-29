@@ -1,9 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { AccommodationServiceContext } from '../context/accomodataion_service';
+import { CompanyAuthContext } from '../context/company_auth';
+
 import Swal from 'sweetalert2';
 
 
 const AccommodationServiceForm = () => {
+   const { company} = useContext(CompanyAuthContext);
   const { createService } = useContext(AccommodationServiceContext);
   const [formData, setFormData] = useState({
     name: '',
@@ -12,7 +15,7 @@ const AccommodationServiceForm = () => {
     images: '',
     price_per_night: 0,
     average_rating: 0,
-    company_id: 0,
+    company_id: company.id,
   });
   const [error, setError] = useState(null);
 
@@ -55,7 +58,7 @@ const AccommodationServiceForm = () => {
         images: '',
         price_per_night: 0,
         average_rating: 0,
-        company_id: 0,
+        company_id: company.id,
       });
     } catch (error) {
       setError(error.message);
