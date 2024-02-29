@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { FaPlane } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { useAuthContext } from '../context/AuthContext.js';
 
 const Navbar = ({ theme }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { handleLogout } = useAuthContext();  // Access the handleLogout function from AuthContext
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -12,6 +15,7 @@ const Navbar = ({ theme }) => {
   const closeNavbar = () => {
     setIsOpen(false);
   };
+
 
   return (
     <nav className={`${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-white text-black'} fixed-top w-full`}>
@@ -36,16 +40,35 @@ const Navbar = ({ theme }) => {
                 {isOpen && (
                   <div onMouseLeave={closeNavbar} className="absolute left-0 mt-2 w-56 origin-top-left bg-gray-900 rounded-md shadow-lg">
                     <div className="py-1 font-bold">
-                      <Link to="/restaurants" className={`block px-4 py-2 text-sm ${theme === 'dark' ? 'text-gray-300 hover:bg-gray-800 hover:text-white' : 'text-gray-900 hover:bg-gray-800 hover:text-white'}`} onClick={closeNavbar}>Restaurants</Link>
-                      <Link to="/transport" className={`block px-4 py-2 text-sm ${theme === 'dark' ? 'text-gray-300 hover:bg-gray-800 hover:text-white' : 'text-gray-900 hover:bg-gray-800 hover:text-white'}`} onClick={closeNavbar}>Flights </Link>
-                      <Link to="/transport" className={`block px-4 py-2 text-sm ${theme === 'dark' ? 'text-gray-300 hover:bg-gray-800 hover:text-white' : 'text-gray-900 hover:bg-gray-800 hover:text-white'}`} onClick={closeNavbar}>Buses</Link>
+                      <Link to="/restaurants" className="text-gray-800 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Restaurants</Link>
+                      <Link to="/transport" className="text-gray-800 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Flights </Link>
+                      <Link to="/transport" className="text-gray-800 hover:bg-gray-800 hover:text-white block px-4 py-2 text-sm" onClick={closeNavbar}>Buses</Link>
                     </div>
                   </div>
                 )}
               </div>
               <div className='mx-10'>
-                <Link to="/contact" className={`px-3 py-2 rounded-md text-sm font-medium ${theme === 'dark' ? 'text-gray-900 dark:text-white hover:bg-gray-800 bg-orange-600 shadow-xl transition hover:text-black hover:bg-white' : 'text-gray-900 dark:text-white hover:bg-black  hover:text-white'}`}>Get in touch</Link>
+              <Link
+  to="/contact"
+  className={`px-3 py-2 rounded-md text-sm font-medium ${
+    theme === 'dark'
+      ? 'text-gray-900 dark:text-white hover:bg-gray-800 bg-orange-600 shadow-xl transition hover:text-black'
+      : 'text-gray-900 dark:text-white hover:bg-gray-200 hover:text-black'
+  }`}
+>
+  Get in touch
+</Link>
                 <Link to="/login" className={`px-3 py-2 rounded-md text-sm mx-3 ${theme === 'dark' ? 'text-gray-900 dark:text-white hover:bg-black  hover:text-white' : 'text-gray-900 dark:text-white hover:bg-gray-800 hover:text-white'}`}>login</Link>
+                <button
+          onClick={handleLogout}
+          className={`px-3 py-2 rounded-md text-sm mx-3 ${
+            theme === 'dark'
+              ? 'text-gray-900 dark:text-white hover:bg-black  hover:text-white'
+              : 'text-gray-900 dark:text-white hover:bg-gray-800 hover:text-white'
+          }`}
+        >
+          Logout
+        </button>
               </div>
             </div>
           </div>
@@ -111,3 +134,4 @@ const Navbar = ({ theme }) => {
 };
 
 export default Navbar;
+
