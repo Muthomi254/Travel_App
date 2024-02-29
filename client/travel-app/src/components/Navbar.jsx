@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaPlane } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Navbar = ({ theme }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +13,51 @@ const Navbar = ({ theme }) => {
   const closeNavbar = () => {
     setIsOpen(false);
   };
+  const token = localStorage.getItem('token');
+console.log('Token:', token);
+  const handleLogout = () => {
+    fetch('/logout', {
+      method: 'POST',
+      headers: {
+        // 'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
 
+      },
+    })
+      .then(response => {
+        if (response.ok) {
+          // Show success alert
+          Swal.fire({
+            icon: 'success',
+            title: 'Logout Successful!',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+
+          // Perform additional actions after successful logout if needed
+          console.log('Logout successful');
+        } else {
+          // Show error alert
+          Swal.fire({
+            icon: 'error',
+            title: 'Logout Failed!',
+            text: 'Please try again.',
+          });
+
+          console.error(response);
+        }
+      })
+      .catch(error => {
+        // Show error alert
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'An error occurred during logout. Please try again.',
+        });
+
+        console.error('Error during logout:', error);
+      });
+  };
   return (
     <nav className={`${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-white text-black'} fixed-top w-full`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,8 +89,27 @@ const Navbar = ({ theme }) => {
                 )}
               </div>
               <div className='mx-10'>
-                <Link to="/contact" className={`px-3 py-2 rounded-md text-sm font-medium ${theme === 'dark' ? 'text-gray-900 dark:text-white hover:bg-gray-800 bg-orange-600 shadow-xl transition hover:text-black hover:bg-white' : 'text-gray-900 dark:text-white hover:bg-black  hover:text-white'}`}>Get in touch</Link>
+              <Link
+  to="/contact"
+  className={`px-3 py-2 rounded-md text-sm font-medium ${
+    theme === 'dark'
+      ? 'text-gray-900 dark:text-white hover:bg-gray-800 bg-orange-600 shadow-xl transition hover:text-black'
+      : 'text-gray-900 dark:text-white hover:bg-gray-200 hover:text-black'
+  }`}
+>
+  Get in touch
+</Link>
                 <Link to="/login" className={`px-3 py-2 rounded-md text-sm mx-3 ${theme === 'dark' ? 'text-gray-900 dark:text-white hover:bg-black  hover:text-white' : 'text-gray-900 dark:text-white hover:bg-gray-800 hover:text-white'}`}>login</Link>
+                <button
+          onClick={handleLogout}
+          className={`px-3 py-2 rounded-md text-sm mx-3 ${
+            theme === 'dark'
+              ? 'text-gray-900 dark:text-white hover:bg-black  hover:text-white'
+              : 'text-gray-900 dark:text-white hover:bg-gray-800 hover:text-white'
+          }`}
+        >
+          Logout
+        </button>
               </div>
             </div>
           </div>

@@ -1,40 +1,33 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import loginImage from '../images/homepage.jpg';
 
 const LoginPage = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    role: 'User', // Change the state property to "role"
+    role: 'User',
   });
   const [authenticationError, setAuthenticationError] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    if (type === 'checkbox') {
-      setFormData((prevData) => ({
-        ...prevData,
-        role: name === 'login-as-Admin' ? 'Admin' : 'User', // Change property to "role"
-      }));
-    } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-    }
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: type === 'checkbox' ? (checked ? 'Admin' : 'User') : value,
+    }));
   };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-  
-    const endpoint = formData.loginAsAdmin ? '/Admin_login' : '/login';
-  
+
+    const endpoint = formData.role === 'Admin' ? '/Admin_login' : '/login';
+
     try {
-      const { email, password } = formData; // Extract only email and password
+      const { email, password } = formData;
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
@@ -42,22 +35,20 @@ const LoginPage = () => {
         },
         body: JSON.stringify({ email, password }),
       });
-  
+
       if (response.ok) {
-        // Successful login, reset authentication error state
         setAuthenticationError(false);
-  
+
         Swal.fire({
           icon: 'success',
           title: 'Login Successful',
           text: 'You have successfully logged in.',
         }).then(() => {
-          // Redirect to the home page
           navigate('/');
         });
       } else {
         setAuthenticationError(true);
-        console.log(f)
+
         Swal.fire({
           icon: 'error',
           title: 'Login Failed',
@@ -72,7 +63,7 @@ const LoginPage = () => {
       });
     }
   };
-  
+
   return (
     <div className="flex justify-center items-center h-screen" style={{ backgroundImage: `url(${loginImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="container mx-auto max-w-md p-8 bg-white bg-opacity-75 rounded-lg shadow-md">
@@ -97,7 +88,7 @@ const LoginPage = () => {
             <input
               type="checkbox"
               id="login-as-Admin"
-              name="login-as-Admin"
+              name="role"
               className="mr-2"
               checked={formData.role === 'Admin'}
               onChange={handleInputChange}
