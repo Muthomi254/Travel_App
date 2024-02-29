@@ -1,4 +1,5 @@
 import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 import Newsletter from "./components/Newsletter";
 import Servicessection from "./components/Servicessection";
 import Showcase from "./components/Showcase";
@@ -10,6 +11,7 @@ import './index.css';
 function App() {
   return (
     <div className="App">
+      <Navbar/>
    <Topsection />
    <Servicessection/>
    <Testimonials/>

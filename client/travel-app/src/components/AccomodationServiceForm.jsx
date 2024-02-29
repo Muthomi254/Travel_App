@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AccommodationServiceContext } from '../context/accomodataion_service';
+import Swal from 'sweetalert2';
+
 
 const AccommodationServiceForm = () => {
   const { createService } = useContext(AccommodationServiceContext);
@@ -21,16 +23,52 @@ const AccommodationServiceForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Check if all required fields are filled
+    if (
+      !formData.name ||
+      !formData.location ||
+      formData.available_rooms <= 0 ||
+      formData.price_per_night <= 0
+    ) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please fill in all required fields.',
+      });
+      return;
+    }
+
     try {
       await createService(formData);
       setError(null);
+      Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: 'Accommodation service created successfully.',
+      });
+      // Reset the form fields after successful submission
+      setFormData({
+        name: '',
+        location: '',
+        available_rooms: 0,
+        images: '',
+        price_per_night: 0,
+        average_rating: 0,
+        company_id: 0,
+      });
     } catch (error) {
       setError(error.message);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'An error occurred while creating the accommodation service.',
+      });
     }
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 border border-gray-300 rounded-md shadow-md">
+    <div className="max-w-md mx-auto mt-10 p-6 border border-gray-300 rounded-md shadow-md bg-gray-300">
       <h2 className="text-2xl font-bold mb-4">
         Create New Accommodation Service
       </h2>
@@ -96,26 +134,16 @@ const AccommodationServiceForm = () => {
             className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
           />
         </label>
-        {/* <label className="block mb-2">
-          <span className="text-gray-700">Company ID:</span>
-          <input
-            type="number"
-            name="company_id"
-            value={formData.company_id}
-            onChange={handleChange}
-            className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-          />
-        </label> */}
+
         <button
           type="submit"
-          className="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600"
+          className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-900 focus:outline-none focus:bg-orange-500"
         >
           Create Service
         </button>
       </form>
     </div>
   );
-
 };
 
 export default AccommodationServiceForm;

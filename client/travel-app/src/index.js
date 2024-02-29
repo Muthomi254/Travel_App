@@ -39,6 +39,7 @@ import TourPlanPage from './pages/TourPlanPage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import ServicePage from './pages/ServicePage'; // Import the ServicePage component
+
 import { TravelingServiceContextProvider } from './context/travel_service';
 import { AccommodationServiceContextProvider } from './context/accomodataion_service';
 
