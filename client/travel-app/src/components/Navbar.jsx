@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { FaPlane } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { useAuthContext } from '../context/AuthContext.js';
 
 const Navbar = ({ theme }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { handleLogout } = useAuthContext();  // Access the handleLogout function from AuthContext
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -46,6 +49,16 @@ const Navbar = ({ theme }) => {
               <div className='mx-10'>
                 <Link to="/contact" className={`px-3 py-2 rounded-md text-xl font-bold  ${theme === 'dark' ? 'text-gray-900 dark:text-white hover:bg-gray-800 bg-orange-600 shadow-xl transition hover:text-black' : 'text-gray-900 dark:text-white hover:bg-black  hover:text-white'}`}>Get in touch</Link>
                 <Link to="/login" className={`px-3 py-2 rounded-md text-sm mx-3 ${theme === 'dark' ? 'text-gray-900 dark:text-white hover:bg-black  hover:text-white' : 'text-gray-900 dark:text-white hover:bg-gray-800 hover:text-white'}`}>login</Link>
+                <button
+                  onClick={handleLogout}
+                  className={`px-3 py-2 rounded-md text-sm mx-3 ${
+                    theme === 'dark'
+                      ? 'text-gray-900 dark:text-white hover:bg-black  hover:text-white'
+                      : 'text-gray-900 dark:text-white hover:bg-gray-800 hover:text-white'
+                  }`}
+                >
+                  Logout
+                </button>
               </div>
             </div>
           </div>
@@ -111,4 +124,3 @@ const Navbar = ({ theme }) => {
 };
 
 export default Navbar;
-

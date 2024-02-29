@@ -9,7 +9,7 @@ const SignupPage = () => {
     password: '',
     confirmPassword: '',
     phone_number: '',
-    role: 'user',
+    role: 'User',
   });
 
   const handleInputChange = (e) => {
@@ -125,13 +125,13 @@ const SignupPage = () => {
           <div className="flex items-center">
             <input
               type="checkbox"
-              id="is-admin"
+              id="is-Admin"
               name="role"
               className="mr-2"
-              checked={formData.role === 'admin'}
-              onChange={() => handleInputChange({ target: { name: 'role', value: formData.role === 'admin' ? 'user' : 'admin', type: 'checkbox', checked: !formData.role }})}
+              checked={formData.role === 'Admin'}
+              onChange={() => handleInputChange({ target: { name: 'role', value: formData.role === 'Admin' ? 'User' : 'Admin', type: 'checkbox', checked: !formData.role }})}
             />
-            <label htmlFor="is-admin" className="text-gray-700">Sign up as admin</label>
+            <label htmlFor="is-Admin" className="text-gray-700">Sign up as Admin</label>
           </div>
           <button type="submit" className="bg-orange-500 text-white py-3 px-6 rounded">Sign Up</button>
         </form>

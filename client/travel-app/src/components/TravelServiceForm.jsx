@@ -3,10 +3,13 @@ import { TravelingServiceContext } from '../context/travel_service';
 import moment from 'moment';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { CompanyAuthContext } from '../context/company_auth';
+
 
 const MySwal = withReactContent(Swal);
 
 const TravelServiceForm = () => {
+  const { company } = useContext(CompanyAuthContext);
   const { createService } = useContext(TravelingServiceContext);
   const [formData, setFormData] = useState({
     name: '',
@@ -20,6 +23,7 @@ const TravelServiceForm = () => {
     registration_number: '',
     image: '',
     vehicle_type: 'Planes',
+    company_id: company.id,
   });
 
   const handleChange = (e) => {

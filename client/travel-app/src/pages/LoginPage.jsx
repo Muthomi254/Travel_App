@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom'; // Import Link
+import { useNavigate, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import loginImage from '../images/homepage.jpg';
 
@@ -15,17 +15,10 @@ const LoginPage = () => {
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    if (type === 'checkbox') {
-      setFormData((prevData) => ({
-        ...prevData,
-        role: name === 'login-as-Admin' ? 'Admin' : 'User',
-      }));
-    } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-    }
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: type === 'checkbox' ? (checked ? 'Admin' : 'User') : value,
+    }));
   };
 
   const handleFormSubmit = async (e) => {
@@ -34,13 +27,13 @@ const LoginPage = () => {
     const endpoint = formData.role === 'Admin' ? '/Admin_login' : '/login';
 
     try {
-      const { email, password } = formData;
+      const { email, password, role } = formData;
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, role }),
       });
 
       if (response.ok) {
@@ -55,6 +48,7 @@ const LoginPage = () => {
         });
       } else {
         setAuthenticationError(true);
+
         Swal.fire({
           icon: 'error',
           title: 'Login Failed',
@@ -94,7 +88,7 @@ const LoginPage = () => {
             <input
               type="checkbox"
               id="login-as-Admin"
-              name="login-as-Admin"
+              name="role"
               className="mr-2"
               checked={formData.role === 'Admin'}
               onChange={handleInputChange}

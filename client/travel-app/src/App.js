@@ -1,4 +1,3 @@
-// App.js
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
@@ -13,7 +12,6 @@ import SuperUser from "./pages/superuser";
 import TransportPage from "./pages/TransportPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import BookWithUs from "./pages/BookWithUs";
-
 
 import "./index.css";
 
@@ -30,7 +28,6 @@ function App() {
         <Route path="/transport" element={<TransportPage />} />
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="/book" element={<BookWithUs/>} />
-
       </Routes>
       
       <Footer />
@@ -41,11 +38,8 @@ function App() {
 function Home() {
   return (
     <>
-      {/* <Servicessection />
-      <Testimonials /> */}
       <Showcase />
       <BookWithUs/>
-
       <Newsletter />
       <ServiceCard />
     </>
@@ -53,3 +47,4 @@ function Home() {
 }
 
 export default App;
+
