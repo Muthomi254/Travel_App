@@ -27,7 +27,6 @@ const AboutUsPage = () => {
     <div className="promotion-content text-center">
       <h2 className="text-3xl mb-4">Explore our packages</h2>
       <p className="mb-6">Discover amazing destinations with our carefully curated packages. Whether you're seeking adventure, romance, or relaxation, we have the perfect getaway for you.</p>
-      <button className="bg-orange-500 text-black p-4 rounded-full">View Packages</button>
     </div>
   </div>
   <div className="beach-image-container mt-6 md:mt-0">
