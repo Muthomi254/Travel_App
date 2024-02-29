@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 import Newsletter from "./components/Newsletter";
 import Servicessection from "./components/Servicessection";
 import Showcase from "./components/Showcase";
@@ -14,12 +15,19 @@ import TransportPage from "./pages/TransportPage";
 function App() {
   return (
     <div className="App">
+
+      <Navbar/>
+   <Topsection />
+   <Servicessection/>
+   <Testimonials/>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/superuser" element={<SuperUser />} />
         <Route path="/transport" element={<TransportPage />} />
       </Routes>
       <Footer />
+
 
     </div>
   );

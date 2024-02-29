@@ -17,6 +17,7 @@ import BookWithUs from "./pages/BookWithUs";
 import { BookingProvider } from "./context/BookingContext.js";
 import { AuthProvider } from "./context/AuthContext.js"; // Import AuthProvider
 
+
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
