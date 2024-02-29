@@ -16,17 +16,16 @@ function App() {
   return (
     <div className="App">
 
-      <Navbar/>
    <Topsection />
    <Servicessection/>
    <Testimonials/>
 
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/superuser" element={<SuperUser />} />
         <Route path="/transport" element={<TransportPage />} />
       </Routes>
-      <Footer />
+      <Footer /> */}
 
 
     </div>

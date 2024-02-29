@@ -27,13 +27,13 @@ const LoginPage = () => {
     const endpoint = formData.role === 'Admin' ? '/Admin_login' : '/login';
 
     try {
-      const { email, password } = formData;
+      const { email, password, role } = formData;
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, role }),
       });
 
       if (response.ok) {

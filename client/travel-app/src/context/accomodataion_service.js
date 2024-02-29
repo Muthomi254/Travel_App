@@ -1,8 +1,8 @@
-// // AccommodationServiceContext.js
 
-// AccommodationServiceContext.js
+
 
 import React, { createContext, useState, useEffect } from 'react';
+
 
 const AccommodationServiceContext = createContext();
 
@@ -10,16 +10,21 @@ const AccommodationServiceContextProvider = (props) => {
   const [services, setServices] = useState([]);
   const [error, setError] = useState(null);
 
-  // Fetch all accommodation services on component mount
   useEffect(() => {
     const fetchAccommodationServices = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5000/accommodation');
+        const response = await fetch('/accommodation', {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+          },
+        });
         if (!response.ok) {
           throw new Error('Failed to fetch accommodation services');
         }
         const data = await response.json();
         setServices(data);
+        setError(null); // Clear any previous errors
       } catch (error) {
         setError(error.message);
       }
@@ -28,13 +33,35 @@ const AccommodationServiceContextProvider = (props) => {
     fetchAccommodationServices();
   }, []);
 
-  // Create a new accommodation service
+  const fetchAccommodationService = async (serviceId) => {
+    try {
+      const response = await fetch(
+        `/accommodation/${serviceId}`,
+        {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+          },
+        }
+      );
+      if (!response.ok) {
+        throw new Error('Failed to fetch accommodation service');
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      setError(error.message);
+      return null;
+    }
+  };
+
   const createService = async (serviceData) => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/accommodation', {
+      const response = await fetch('/accommodation', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
         },
         body: JSON.stringify(serviceData),
       });
@@ -43,21 +70,21 @@ const AccommodationServiceContextProvider = (props) => {
       }
       const newService = await response.json();
       setServices([...services, newService]);
-      setError(null);
+      setError(null); // Clear any previous errors
     } catch (error) {
       setError(error.message);
     }
   };
 
-  // Update an existing accommodation service
   const updateService = async (serviceId, updatedServiceData) => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/accommodation/${serviceId}`,
+        `/accommodation/${serviceId}`,
         {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
           },
           body: JSON.stringify(updatedServiceData),
         }
@@ -70,19 +97,21 @@ const AccommodationServiceContextProvider = (props) => {
         service.id === serviceId ? updatedService : service
       );
       setServices(updatedServices);
-      setError(null);
+      setError(null); // Clear any previous errors
     } catch (error) {
-      setError(error.message);
+      setError(error.message); // Set error message
     }
   };
 
-  // Delete an existing accommodation service
   const deleteService = async (serviceId) => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/accommodation/${serviceId}`,
+        `/accommodation/${serviceId}`,
         {
           method: 'DELETE',
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+          },
         }
       );
       if (!response.ok) {
@@ -95,9 +124,9 @@ const AccommodationServiceContextProvider = (props) => {
         (service) => service.id !== serviceId
       );
       setServices(updatedServices);
-      setError(null);
+      setError(null); // Clear any previous errors
     } catch (error) {
-      setError(error.message);
+      setError(error.message); // Set error message
     }
   };
 
@@ -112,6 +141,10 @@ const AccommodationServiceContextProvider = (props) => {
 
 export { AccommodationServiceContext, AccommodationServiceContextProvider };
 
+
+
+// // AccommodationServiceContext.js
+
 // import React, { createContext, useState, useEffect } from 'react';
 
 // const AccommodationServiceContext = createContext();
@@ -124,7 +157,7 @@ export { AccommodationServiceContext, AccommodationServiceContextProvider };
 //   useEffect(() => {
 //     const fetchAccommodationServices = async () => {
 //       try {
-//         const response = await fetch('http://127.0.0.1:5000/accommodation', {
+//         const response = await fetch('/accommodation', {
 //           method: 'GET',
 //           headers: {
 //             Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -146,7 +179,7 @@ export { AccommodationServiceContext, AccommodationServiceContextProvider };
 //   // Create a new accommodation service
 //   const createService = async (serviceData) => {
 //     try {
-//       const response = await fetch('http://127.0.0.1:5000/accommodation', {
+//       const response = await fetch('/accommodation', {
 //         method: 'POST',
 //         headers: {
 //           'Content-Type': 'application/json',
@@ -168,7 +201,7 @@ export { AccommodationServiceContext, AccommodationServiceContextProvider };
 //   // Update an existing accommodation service
 //   const updateService = async (serviceId, updatedServiceData) => {
 //     try {
-//       const response = await fetch(`http://127.0.0.1:5000/accommodation/${serviceId}`, {
+//       const response = await fetch(`/accommodation/${serviceId}`, {
 //         method: 'PATCH',
 //         headers: {
 //           'Content-Type': 'application/json',
@@ -193,7 +226,7 @@ export { AccommodationServiceContext, AccommodationServiceContextProvider };
 //   // Delete an existing accommodation service
 //   const deleteService = async (serviceId) => {
 //     try {
-//       const response = await fetch(`http://127.0.0.1:5000/accommodation/${serviceId}`, {
+//       const response = await fetch(`/accommodation/${serviceId}`, {
 //         method: 'DELETE',
 //         headers: {
 //           Authorization: `Bearer ${localStorage.getItem('accessToken')}`,

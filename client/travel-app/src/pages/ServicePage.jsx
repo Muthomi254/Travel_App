@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import AccommodationServiceForm from '../components/AccomodationServiceForm';
 import TravelServiceForm from '../components/TravelServiceForm';
+import CompanyProfile from '../components/CompanyProfile'; // Import the CompanyProfile component
+import CompanyServicesForm from '../components/CompanyAccomodationServices'; // Import the CompanyServicesForm component
+import CompanyTravelServicesForm from '../components/CompanyTravelServices'; // Import the CompanyTravelServicesForm component
 
-// import AccommodationServiceForm from '../context/accomodataion_service';
-// import TravelServiceForm from '../context/travel_service';
+import { FaUser } from 'react-icons/fa';
+import { FaTimes } from 'react-icons/fa'; // Import the FontAwesome close icon
 
 const ServicePage = () => {
   const [showAccommodationForm, setShowAccommodationForm] = useState(false);
@@ -11,22 +14,37 @@ const ServicePage = () => {
 
   const toggleAccommodationForm = () => {
     setShowAccommodationForm(!showAccommodationForm);
-    setShowTravelForm(false); // Close the travel form if it's open
+    setShowTravelForm(false);
   };
 
   const toggleTravelForm = () => {
     setShowTravelForm(!showTravelForm);
-    setShowAccommodationForm(false); // Close the accommodation form if it's open
+    setShowAccommodationForm(false);
   };
 
   return (
     <div className="bg-gray-300 min-h-screen p-4 sm:p-8">
       <div className="max-w-5xl mx-auto w-full">
         <h1 className="text-3xl font-bold m-4 sm:m-10 mb-8">Service Page</h1>
-        <div className="flex flex-col sm:flex-row mb-8 m-4 sm:m-10 p-4 justify-center">
+
+        <div className="max-w-lg mx-auto mt-8 p-4 border border-gray-300  flex items-center">
+          <CompanyProfile />
+        </div>
+
+        {/* Add the CompanyServicesForm component */}
+        <div className="max-w-lg mx-auto mt-8 p-4 border border-gray-300">
+          <CompanyServicesForm />
+        </div>
+
+        {/* Add the CompanyTravelServicesForm component */}
+        <div className="max-w-lg mx-auto mt-8 p-4 border border-gray-300">
+          <CompanyTravelServicesForm />
+        </div>
+
+        <div className="flex flex-col sm:flex-row m-4 sm:m-10 p-4">
           <div className="w-full sm:w-1/2 mb-4 sm:mb-0 sm:mr-4">
             <h2
-              className="text-xl font-semibold mb-2 cursor-pointer"
+              className="text-xl font-semibold mb-2 cursor-pointer hover:underline"
               onClick={toggleAccommodationForm}
             >
               Accommodation Service Form
@@ -35,17 +53,19 @@ const ServicePage = () => {
             <button
               className={`bg-${
                 showAccommodationForm ? 'gray' : 'blue'
-              }-500 hover:bg-${
-                showAccommodationForm ? 'blue' : 'blue'
-              }-700 text-white font-bold py-2 px-4 rounded mt-2 w-full sm:w-auto sm:mr-2`}
+              }-500 text-white font-bold py-2 px-4 rounded mt-2 w-full sm:w-auto flex items-center hover:underline`}
               onClick={toggleAccommodationForm}
             >
-              {showAccommodationForm ? 'Close' : 'Add Accommodation Service'}
+              {showAccommodationForm ? (
+                <FaTimes />
+              ) : (
+                'Add Accommodation Service'
+              )}
             </button>
           </div>
           <div className="w-full sm:w-1/2">
             <h2
-              className="text-xl font-semibold mb-2 cursor-pointer"
+              className="text-xl font-semibold mb-2 cursor-pointer hover:underline"
               onClick={toggleTravelForm}
             >
               Travel Service Form
@@ -53,13 +73,11 @@ const ServicePage = () => {
             {showTravelForm && <TravelServiceForm />}
             <button
               className={`bg-${
-                showTravelForm ? 'gray' : 'green'
-              }-500 hover:bg-${
-                showTravelForm ? 'green' : 'green'
-              }-700 text-white font-bold py-2 px-4 rounded mt-2 w-full sm:w-auto`}
+                showTravelForm ? 'gray-300' : 'green'
+              }-500 text-white font-bold py-2 px-4 rounded mt-2 w-full sm:w-auto flex items-center hover:underline`}
               onClick={toggleTravelForm}
             >
-              {showTravelForm ? 'Close' : 'Add Travel Service'}
+              {showTravelForm ? <FaTimes /> : 'Add Travel Service'}
             </button>
           </div>
         </div>
