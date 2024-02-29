@@ -1,7 +1,10 @@
 import React, { useContext, useState } from 'react';
-import { TravelingServiceContext } from '../context/travel_service'; // Adjust import path
-import moment from 'moment'; // Import Moment.js library
+import { TravelingServiceContext } from '../context/travel_service';
+import moment from 'moment';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
+const MySwal = withReactContent(Swal);
 
 const TravelServiceForm = () => {
   const { createService } = useContext(TravelingServiceContext);
@@ -18,7 +21,6 @@ const TravelServiceForm = () => {
     image: '',
     vehicle_type: 'Planes',
   });
-  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,29 +30,39 @@ const TravelServiceForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate form data before submission
     if (
       !formData.name ||
       !formData.departure_city ||
       !formData.arrival_city ||
       !formData.registration_number
     ) {
-      setError('Please fill in all required fields.');
+      MySwal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please fill in all required fields.',
+      });
       return;
     }
 
     if (formData.seats <= 0 || formData.price <= 0) {
-      setError('Seats and price must be greater than 0.');
+      MySwal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Seats and price must be greater than 0.',
+      });
       return;
     }
 
     if (!formData.departure_time || !formData.arrival_time) {
-      setError('Please select departure and arrival times.');
+      MySwal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please select departure and arrival times.',
+      });
       return;
     }
 
     try {
-      // Format datetime strings to match backend expectations using moment library
       const formattedData = {
         ...formData,
         departure_time: moment(formData.departure_time).format(
@@ -63,17 +75,52 @@ const TravelServiceForm = () => {
 
       console.log('Creating new travel service:', formattedData);
       await createService(formattedData);
-      setError(null);
+      setFormData({
+        // Reset form fields to initial state
+        name: '',
+        seats: 0,
+        departure_time: '',
+        arrival_time: '',
+        description: '',
+        price: 0,
+        departure_city: '',
+        arrival_city: '',
+        registration_number: '',
+        image: '',
+        vehicle_type: 'Planes',
+      });
+      MySwal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: 'Travel service created successfully.',
+      });
     } catch (error) {
-      setError(error.message);
+      console.log(error); // Log the error response
+      if (
+        error.response &&
+        error.response.status === 400 &&
+        error.response.data &&
+        error.response.data.error === 'Registration number already exists'
+      ) {
+        MySwal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Registration number already exists.',
+        });
+      } else {
+        MySwal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'An error occurred while creating the travel service.',
+        });
+      }
     }
   };
 
-  
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 border border-gray-300 rounded-md shadow-md">
-      <h2 className="text-xl font-semibold mb-4">Create New Travel Service</h2>
-      {error && <p className="text-red-500 mb-4">{error}</p>}
+    <div className="max-w-md mx-auto mt-10 p-6 bg-gray-300 text-whiterounded-md shadow-md">
+      <h2 className="text-2xl font-semibold mb-4">Create New Travel Service</h2>
+      {/* {error && <p className="text-red-500 mb-4">{error}</p>} */}
       <form onSubmit={handleSubmit}>
         <label className="block mb-2">
           <span className="text-gray-700">Name:</span>
@@ -190,7 +237,7 @@ const TravelServiceForm = () => {
 
         <button
           type="submit"
-          className="mt-4 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          className="mt-4 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-orange-500 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >
           Create Service
         </button>
