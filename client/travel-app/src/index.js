@@ -9,12 +9,14 @@ import TransportPage from "./pages/TransportPage";
 import TourPlanPage from "./pages/TourPlanPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
-import ServicePage from "./pages/ServicePage";
-import CompanyLoginForm from "./pages/CompanyLoginForm";
-import CompanyRegistrationForm from "./pages/CompanyRegistrationForm";
-import { CompanyAuthContextProvider } from "./context/company_auth";
-import { TravelingServiceContextProvider } from "./context/travel_service";
-import { AccommodationServiceContextProvider } from "./context/accommodation_service";
+
+import ServicePage from "./pages/ServicePage"; // Import the ServicePage component
+import CompanyLoginForm from './pages/CompanyLoginForm';
+import CompanyRegistrationForm from './pages/CompanyRegistrationForm';
+import { CompanyAuthContextProvider } from './context/company_auth';
+import { TravelingServiceContextProvider } from './context/travel_service';
+import { AccommodationServiceContextProvider } from './context/accomodataion_service.js';
+
 import AboutUsPage from "./pages/AboutUsPage";
 import BookWithUs from "./pages/BookWithUs";
 import { BookingProvider } from "./context/BookingContext.js";
