@@ -23,7 +23,7 @@ const hotelsData = [
   },
   {
     name: 'Radisson Blu',
-    image: radisson ,
+    image: radisson,
     rating: 4.8,
     description: 'Indulge in the ultimate beachfront experience with world-class amenities.',
     location: 'Maasai Mara'
@@ -63,8 +63,8 @@ const BookWithUs = () => {
       {/* Hero Section */}
       <section className="hero-section text-center py-16" style={{ backgroundImage: `url(${require('../images/maldives-island.jpg')})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="container mx-auto">
-          <h1 className="text-5xl font-bold mb-4">Book With Us</h1>
-          <p className="text-lg mb-6">Discover amazing destinations with our carefully curated packages. Whether you're seeking adventure, romance, or relaxation, we have the perfect getaway for you.</p>
+          <h1 className="text-5xl font-bold mb-4 text-white">Book With Us</h1>
+          <p className="text-lg mb-6 text-white">Discover amazing destinations with our carefully curated packages. Whether you're seeking adventure, romance, or relaxation, we have the perfect getaway for you.</p>
           <button className="bg-orange-500 text-black py-3 px-8 rounded-full uppercase">Explore Packages</button>
         </div>
       </section>
