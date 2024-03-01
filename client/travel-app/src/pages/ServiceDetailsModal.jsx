@@ -16,6 +16,7 @@ const ServiceDetailsModal = ({ service, onClose, scrollToBottom }) => {
       onClose();
     }
   };
+
   return (
     <div className="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center" onClick={handleClickOutside}>
       <div className="modal-container bg-white rounded-lg shadow-lg p-4">
@@ -23,11 +24,7 @@ const ServiceDetailsModal = ({ service, onClose, scrollToBottom }) => {
         <h3 className="text-xl font-bold font-serif text-center">{service.name}</h3>
         <p className="text-sm text-center">{service.description}</p>
         <div className="flex items-center justify-center">
-          <p className="text-lg font-bold">${service.price}</p>
-          <div className="flex items-center ml-2">
-            <FaStar className="text-orange-500" /> {/* Use FaStar icon */}
-            <p className="ml-1 text-lg">{service.rating}</p>
-          </div>
+          <p className="text-lg font-bold text-orange-400">${service.price}</p> {/* Change price color to light orange */}
         </div>
         <div className="grid grid-cols-2 gap-2 mt-4">
           <div>
