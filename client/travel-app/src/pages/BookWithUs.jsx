@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // Import axios for making HTTP requests
+import hilton from '../images/Rectangle 19377.png';
+import four from '../images/Rectangle 19377 (6).png';
+import radisson from '../images/Rectangle 19377 (5).png';
+import villa from '../images/Rectangle 19377 (3).png';
+import atlantic from '../images/Rectangle 19377 (2).png';
+import jemeirah from '../images/Rectangle 19377 (1).png';
 
+// Define TripPlanner component
 const TripPlanner = () => {
   const [formData, setFormData] = useState({
     checkin: '',
@@ -13,58 +20,57 @@ const TripPlanner = () => {
   // eslint-disable-next-line
   const [selectedHotel, setSelectedHotel] = useState(null);
 
-const hotelsData = [
-  {
-    name: 'Hilton Hotel',
-    image: hilton,
-    rating: 4.5,
-    description: 'A cozy hotel located in the heart of the city. Perfect for a weekend getaway.',
-    location: 'Paris'
-  },
-  {
-    name: 'Four Seasons',
-    image: four,
-    rating: 4.2,
-    description: 'Experience luxury at its finest with breathtaking views of the surrounding mountains.',
-    location: 'Nairobi'
-  },
-  {
-    name: 'Radisson Blu',
-    image: radisson,
-    rating: 4.8,
-    description: 'Indulge in the ultimate beachfront experience with world-class amenities.',
-    location: 'Maasai Mara'
-  },
-  {
-    name: 'Villa Rosa',
-    image: villa,
-    rating: 4.6,
-    description: 'Discover the charm of this historic hotel nestled in the heart of a bustling metropolis.',
-    location: 'Dubai'
-  },
-  {
-    name: 'Atlantic City',
-    image: atlantic,
-    rating: 4.0,
-    description: 'A charming seaside retreat, our hotel offers breathtaking ocean views and luxurious accommodations.',
-    location: 'Toronto'
-  },
-  {
-    name: 'Jumeirah',
-    image: jemeirah,
-    rating: 4.2,
-    description: 'Nestled in the heart of the city, our boutique hotel blends modern elegance with historic charm for an unforgettable urban escape.',
-    location: 'Cameroon'
-  },
-];
+  const hotelsData = [
+    {
+      name: 'Hilton Hotel',
+      image: hilton,
+      rating: 4.5,
+      description: 'A cozy hotel located in the heart of the city. Perfect for a weekend getaway.',
+      location: 'Paris'
+    },
+    {
+      name: 'Four Seasons',
+      image: four,
+      rating: 4.2,
+      description: 'Experience luxury at its finest with breathtaking views of the surrounding mountains.',
+      location: 'Nairobi'
+    },
+    {
+      name: 'Radisson Blu',
+      image: radisson,
+      rating: 4.8,
+      description: 'Indulge in the ultimate beachfront experience with world-class amenities.',
+      location: 'Maasai Mara'
+    },
+    {
+      name: 'Villa Rosa',
+      image: villa,
+      rating: 4.6,
+      description: 'Discover the charm of this historic hotel nestled in the heart of a bustling metropolis.',
+      location: 'Dubai'
+    },
+    {
+      name: 'Atlantic City',
+      image: atlantic,
+      rating: 4.0,
+      description: 'A charming seaside retreat, our hotel offers breathtaking ocean views and luxurious accommodations.',
+      location: 'Toronto'
+    },
+    {
+      name: 'Jumeirah',
+      image: jemeirah,
+      rating: 4.2,
+      description: 'Nestled in the heart of the city, our boutique hotel blends modern elegance with historic charm for an unforgettable urban escape.',
+      location: 'Cameroon'
+    },
+  ];
 
-const BookWithUs = () => {
-  const [priceFilter, setPriceFilter] = useState('');
-  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  const [priceFilter, setPriceFilter] = useState(''); // Define priceFilter state variable
 
   const handlePriceFilterChange = (event) => {
     setPriceFilter(event.target.value);
@@ -86,7 +92,6 @@ const BookWithUs = () => {
       console.log('No hotel selected for booking');
     }
   };
-
 
   return (
     <div id="trip-planner" className="trip-planner text-center py-8" style={{ paddingBottom: '100px' }}>
@@ -137,10 +142,11 @@ const BookWithUs = () => {
   );
 };
 
+// Define BookWithUs component
 const BookWithUs = () => {
   const [hotelsData, setHotelsData] = useState([]); // State for storing hotel data
   // eslint-disable-next-line
-  const [selectedHotel, setSelectedHotel] = useState(null); 
+  const [selectedHotel, setSelectedHotel] = useState(null);
   const fetchHotelsData = async () => {
     try {
       const response = await axios.get('/accommodation');
@@ -180,7 +186,7 @@ const BookWithUs = () => {
         ))}
       </section>
 
-      {/* Trip Planner */}
+      {/* Render TripPlanner component */}
       <TripPlanner />
     </div>
   );

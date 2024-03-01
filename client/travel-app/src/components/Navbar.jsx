@@ -47,7 +47,7 @@ const Navbar = ({ theme }) => {
                 )}
               </div>
               <div className='mx-10'>
-                <Link to="/contact" className={`px-3 py-2 rounded-md text-xl font-bold  ${theme === 'dark' ? 'text-gray-900 dark:text-white hover:bg-gray-800 bg-orange-600 shadow-xl transition hover:text-black' : 'text-gray-900 dark:text-white hover:bg-black  hover:text-white'}`}>Get in touch</Link>
+              <Link to="/company-login" className={`px-3 py-2 rounded-md text-xl font-bold  ${theme === 'dark' ? 'text-gray-900 dark:text-white hover:bg-gray-800 bg-orange-600 shadow-xl transition hover:text-black' : 'text-gray-900 dark:text-white hover:bg-black  hover:text-white'}`}>Company Login</Link>
                 <Link to="/login" className={`px-3 py-2 rounded-md text-sm mx-3 ${theme === 'dark' ? 'text-gray-900 dark:text-white hover:bg-black  hover:text-white' : 'text-gray-900 dark:text-white hover:bg-gray-800 hover:text-white'}`}>login</Link>
                 <button
                   onClick={handleLogout}
