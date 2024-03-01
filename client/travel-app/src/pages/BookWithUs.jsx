@@ -10,7 +10,7 @@ const TripPlanner = () => {
     people_included: '',
     user_id: 0, // Assuming user_id is required and not provided by the user
   });
-  
+  // eslint-disable-next-line
   const [selectedHotel, setSelectedHotel] = useState(null);
   const [priceFilter, setPriceFilter] = useState('');
   
@@ -91,6 +91,7 @@ const TripPlanner = () => {
 
 const BookWithUs = () => {
   const [hotelsData, setHotelsData] = useState([]); // State for storing hotel data
+  // eslint-disable-next-line
   const [selectedHotel, setSelectedHotel] = useState(null); 
   const fetchHotelsData = async () => {
     try {
