@@ -14,7 +14,7 @@ import CompanyLoginForm from './pages/CompanyLoginForm';
 import CompanyRegistrationForm from './pages/CompanyRegistrationForm';
 import { CompanyAuthContextProvider } from './context/company_auth';
 import { TravelingServiceContextProvider } from './context/travel_service';
-import { AccommodationServiceContextProvider } from './context/accommodation_service';
+import { AccommodationServiceContextProvider } from './context/accomodataion_service.js';
 import AboutUsPage from "./pages/AboutUsPage";
 import BookWithUs from "./pages/BookWithUs";
 import { BookingProvider } from "./context/BookingContext.js";
