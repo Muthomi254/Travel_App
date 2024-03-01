@@ -11,7 +11,6 @@ const Hero = () => {
         <p className="text-xl pt-3 text-orange-700">No matter where you’re going to, we’ll take you there</p>
         <p className='text-md pt-2 font-thin'>Embark on unforgettable journeys with us. Discover new horizons,<br/> experience vibrant cultures, and create lasting memories.<br/> Start your adventure today!"</p>
       </div>
-      <TravelForm/>
       <Brands/>
     </div>
   );

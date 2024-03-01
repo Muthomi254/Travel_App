@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import sideimg from "../images/sideimg.jpg";
 import sideimg2 from "../images/sideimg2.jpg";
+import { Link } from "react-router-dom";
 
 const Servicessection = () => {
   return (
@@ -78,9 +79,11 @@ const Servicessection = () => {
             memories with your loved one.
           </p>
           <div className="mt-8">
+            <Link to='/about'>
             <button className="bg-[#DF6951] py-2 px-4 rounded-full text-white">
               view packages
             </button>
+            </Link>
           </div>
         </div>
         <div className="w-1/2 flex justify-center">
