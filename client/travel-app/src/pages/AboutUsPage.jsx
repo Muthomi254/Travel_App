@@ -1,15 +1,18 @@
 import React from 'react';
-import BeachImage from '../images/Ellipse 626.png';
-import AdventurePackageImage from '../images/Group 1000001757.png';
-import HoneymoonPackageImage from '../images/Group 1000001755.png';
-import VacationPackageImage from '../images/Group 1000001756.png';
-import France from '../images/type-entertainment-complex-popular-resort-with-pools-water-parks-turkey-with-more-than-5-million-visitors-year-amara-dolce-vita-luxury-hotel-resort-tekirova-kemer.jpg';
-import Korea from '../images/nature-water-beautiful-blue-house.jpg';
-import Kenya from '../images/outdoor-shot-atrractive-trendy-looking-dark-skinned-tourist-studying-paper-map-his-hands-wearing-shades-hat-standing-sightseeing-platform.jpg';
-import Japan from '../images/maldives-island.jpg';
-import Canada from '../images/hammock.jpg';
-import Australia from '../images/cityscape-paris-sunlight-blue-sky-fra.jpg';
-import ClientAvatarImage from '../images/front-view-smiley-man-outdoors.jpg';
+import Navbar from "../components/Navbar";
+import { Link } from 'react-router-dom';
+
+const BeachImage = 'https://source.unsplash.com/random/800x600?beach';
+const AdventurePackageImage = 'https://source.unsplash.com/random/800x600?adventure';
+const HoneymoonPackageImage = 'https://source.unsplash.com/random/800x600?honeymoon';
+const VacationPackageImage = 'https://source.unsplash.com/random/800x600?vacation';
+const FranceImage = 'https://source.unsplash.com/random/800x600?france';
+const KoreaImage = 'https://source.unsplash.com/random/800x600?korea';
+const KenyaImage = 'https://source.unsplash.com/random/800x600?kenya';
+const JapanImage = 'https://source.unsplash.com/random/800x600?japan';
+const CanadaImage = 'https://source.unsplash.com/random/800x600?canada';
+const AustraliaImage = 'https://source.unsplash.com/random/800x600?australia';
+const ClientAvatarImage = 'https://source.unsplash.com/random/800x600?avatar';
 
 const AboutUsPage = () => {
   return (
@@ -62,77 +65,122 @@ const AboutUsPage = () => {
       <img src={VacationPackageImage} alt="Vacation Package" />
       <div className="visual-percentage">55%</div>
     </div>
+    <div className="bg-white">
+     <section className="bg-cover bg-center h-screen" style={{ backgroundImage: `url(${BeachImage})` }}>
+      <Navbar/>
+  <div className="flex flex-col justify-center items-center h-full text-white">
+    <h1 className="text-6xl font-bold text-center">Discover Your Next Adventure</h1>
+    <p className="text-xl text-center mt-4">Explore our curated packages for the ultimate getaway experience</p>
+    <Link to="/booking">
+  <button className="bg-blue-500 text-white px-8 py-3 mt-8 rounded hover:bg-blue-700">
+    View Packages
+  </button>
+</Link>
   </div>
 </section>
 
 
-      <section className="video-section text-center max-w-4xl mx-auto mt-12">
-        <h2 className="text-3xl mb-8">Explore Tourist Destinations</h2>
-        <div className="video-container">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/Xj4E0Zry6K4" title="Exploring Tourist Destinations" frameBorder="0" allowFullScreen></iframe>
+      <section id="accommodation" className="py-8">
+        <div className="container mx-auto flex flex-col md:flex-row items-center">
+          <div className="md:w-1/2 p-4">
+            <h2 className="text-3xl font-bold">Explore our packages</h2>
+            <p>Discover amazing destinations with our carefully curated packages. Whether you're seeking adventure, romance, or relaxation, we have the perfect getaway for you.</p>
+            <button className="bg-blue-500 text-white px-4 py-2 mt-4 rounded hover:bg-blue-700">View Packages</button>
+          </div>
+          <div className="md:w-1/2">
+            <img className="w-full h-auto" src={BeachImage} alt="Beach with mountains in the background" />
+          </div>
         </div>
       </section>
-      <section className="explore-more-section max-w-4xl mx-auto mt-12">
-  <h2 className="text-3xl mb-8">Explore More</h2>
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-    <div className="package-list">
-      <div className="package-item rounded-lg shadow-md" style={{ marginBottom: '2rem' }}>
-        <img src={France} alt="Travel destination 1" className="rounded-lg" style={{ maxWidth: '90%', maxHeight: '200px' }} />
-        <div className="package-info">
-          <h3>$500 - International</h3>
-          <p>Destination: Paris, France</p>
-        </div>
-      </div>
-      <div className="package-item rounded-lg shadow-md" style={{ marginBottom: '2rem' }}>
-        <img src={Kenya} alt="Travel destination 1" className="rounded-lg" style={{ maxWidth: '90%', maxHeight: '200px' }} />
-        <div className="package-info">
-          <h3>$500 - local</h3>
-          <p>Destination: Maasai Mara, Kenya</p>
-        </div>
-      </div>
-      <div className="package-item rounded-lg shadow-md">
-        <img src={Canada} alt="Travel destination 1" className="rounded-lg" style={{ maxWidth: '90%', maxHeight: '200px' }} />
-        <div className="package-info">
-          <h3>$500 - International</h3>
-          <p>Destination: Ottawa, Canada</p>
-        </div>
-      </div>
-    </div>
-    <div className="package-list">
-      <div className="package-item rounded-lg shadow-md" style={{ marginBottom: '2rem' }}>
-        <img src={Korea} alt="Travel destination 1" className="rounded-lg" style={{ maxWidth: '90%', maxHeight: '200px' }} />
-        <div className="package-info">
-          <h3>$750 - International</h3>
-          <p>Destination: Seoul, South Korea</p>
-        </div>
-      </div>
-      <div className="package-item rounded-lg shadow-md" style={{ marginBottom: '2rem' }}>
-        <img src={Japan} alt="Travel destination 1" className="rounded-lg" style={{ maxWidth: '90%', maxHeight: '200px' }} />
-        <div className="package-info">
-          <h3>$650 - International</h3>
-          <p>Destination: Tokyo, Japan</p>
-        </div>
-      </div>
-      <div className="package-item rounded-lg shadow-md" style={{ marginBottom: '2rem' }}>
-        <img src={Australia} alt="Travel destination 1" className="rounded-lg" style={{ maxWidth: '90%', maxHeight: '200px' }} />
-        <div className="package-info">
-          <h3>$500 - International</h3>
-          <p>Destination: Sydney, Australia</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <button className="bg-orange-500 text-black py-3 px-8 rounded-full uppercase mt-8">Explore More</button>
-</section>
 
+      <section className="py-8">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold">Our Best Packages</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-gray-200 p-4">
+              <h3 className="text-xl font-bold">Adventure</h3>
+              <p>Embark on thrilling adventures with our adrenaline-pumping packages.</p>
+              <img className="w-full h-auto mt-4" src={AdventurePackageImage} alt="Adventure Package" />
+              <div className="bg-blue-500 text-white px-2 py-1 rounded mt-2">30%</div>
+            </div>
+            <div className="bg-gray-200 p-4">
+              <h3 className="text-xl font-bold">Honeymoon</h3>
+              <p>Romantic getaways for newlyweds to celebrate love in picturesque locations.</p>
+              <img className="w-full h-auto mt-4" src={HoneymoonPackageImage} alt="Honeymoon Package" />
+              <div className="bg-blue-500 text-white px-2 py-1 rounded mt-2">78%</div>
+            </div>
+            <div className="bg-gray-200 p-4">
+              <h3 className="text-xl font-bold">Vacations</h3>
+              <p>Relax and unwind in exotic destinations with our vacation packages.</p>
+              <img className="w-full h-auto mt-4" src={VacationPackageImage} alt="Vacation Package" />
+              <div className="bg-blue-500 text-white px-2 py-1 rounded mt-2">55%</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <section className="client-review-section max-w-4xl mx-auto mt-12">
-        <h2 className="text-3xl mb-8">What Our Clients Say</h2>
-        <div className="client-review flex items-center mb-8">
-          <img src={ClientAvatarImage} alt="Client Avatar" className="rounded-full w-16 h-16 mr-4" />
-          <div className="client-info">
-            <h3 className="text-lg font-bold">John Doe</h3>
-            <p className="text-gray-600">"Excellent website with good Packages, definitely recommendable. Offers unique places and activities."</p>
+      <section className="py-8 bg-gray-200">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold">Explore More</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div className="bg-white p-4 shadow-md">
+              <img className="w-full h-auto" src={FranceImage} alt="France" />
+              <div className="mt-2">
+                <h3 className="text-lg font-bold">$500 - International</h3>
+                <p>Destination: Paris, France</p>
+              </div>
+            </div>
+            <div className="bg-white p-4 shadow-md">
+              <img className="w-full h-auto" src={KenyaImage} alt="Kenya" />
+              <div className="mt-2">
+                <h3 className="text-lg font-bold">$500 - Local</h3>
+                <p>Destination: Maasai Mara, Kenya</p>
+              </div>
+            </div>
+            <div className="bg-white p-4 shadow-md">
+              <img className="w-full h-auto" src={CanadaImage} alt="Canada" />
+              <div className="mt-2">
+                <h3 className="text-lg font-bold">$500 - International</h3>
+                <p>Destination: Ottawa, Canada</p>
+              </div>
+            </div>
+            <div className="bg-white p-4 shadow-md">
+              <img className="w-full h-auto" src={KoreaImage} alt="Korea" />
+              <div className="mt-2">
+                <h3 className="text-lg font-bold">$750 - International</h3>
+                <p>Destination: Seoul, South Korea</p>
+              </div>
+            </div>
+            <div className="bg-white p-4 shadow-md">
+              <img className="w-full h-auto" src={JapanImage} alt="Japan" />
+              <div className="mt-2">
+                <h3 className="text-lg font-bold">$650 - International</h3>
+                <p>Destination: Tokyo, Japan</p>
+              </div>
+            </div>
+            <div className="bg-white p-4 shadow-md">
+              <img className="w-full h-auto" src={AustraliaImage} alt="Australia" />
+              <div className="mt-2">
+                <h3 className="text-lg font-bold">$500 - International</h3>
+                <p>Destination: Sydney, Australia</p>
+              </div>
+            </div>
+          </div>
+          <button className="bg-blue-500 text-white px-4 py-2 mt-4 rounded hover:bg-blue-700">Explore More</button>
+        </div>
+      </section>
+
+      <section className="py-8">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold">What Our Clients Say</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white p-4 shadow-md">
+              <img className="w-12 h-12 rounded-full" src={ClientAvatarImage} alt="Client Avatar" />
+              <div className="mt-2">
+                <h3 className="text-lg font-bold">John Doe</h3>
+                <p className="italic">"Excellent website with good Packages, definitely recommendable. Offers unique places and activities."</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

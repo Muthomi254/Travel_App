@@ -9,25 +9,28 @@ import Testimonials from "./components/Testimonials";
 import Topsection from "./components/Topsection";
 import ServiceCard from "./components/servicecard";
 import SuperUser from "./pages/superuser";
-import "./index.css";
 import TransportPage from "./pages/TransportPage";
+import AboutUsPage from "./pages/AboutUsPage";
+import BookWithUs from "./pages/BookWithUs";
+
+import "./index.css";
 
 function App() {
   return (
     <div className="App">
-
-   <Topsection />
-   <Servicessection/>
-   <Testimonials/>
-
-      {/* <Routes>
+      <Topsection />
+      <Servicessection />
+      <Testimonials />
+      
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/superuser" element={<SuperUser />} />
         <Route path="/transport" element={<TransportPage />} />
+        <Route path="/about" element={<AboutUsPage />} />
+        <Route path="/book" element={<BookWithUs/>} />
       </Routes>
-      <Footer /> */}
-
-
+      
+      <Footer />
     </div>
   );
 }
@@ -35,10 +38,8 @@ function App() {
 function Home() {
   return (
     <>
-      <Topsection />
-      <Servicessection />
-      <Testimonials />
       <Showcase />
+      <BookWithUs/>
       <Newsletter />
       <ServiceCard />
     </>
